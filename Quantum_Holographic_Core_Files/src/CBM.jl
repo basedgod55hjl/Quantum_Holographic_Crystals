@@ -60,15 +60,15 @@ using .GenesisRunner
 
 function welcome()
     println("╔═══════════════════════════════════════════════════════════════════════╗")
-    println("║  🌌 BM-Genesis: Quantum Holographic Crystals v4.0-ARTHUR              ║")
-    println("║  🧬 Ownership: Sir Charles Spikes (BASEDGOD)                          ║")
-    println("║  🧠 System: 7D Deep-Sorted Hyperbolic Neural Core Active              ║")
+    println("║  🌌 BM-Genesis: Quantum Holographic Crystals v5.0-GODMODE             ║")
+    println("║  🧬 Discovery: Sir Charles Spikes (Arthur - BASEDGOD)                 ║")
+    println("║  🧠 System: COMPLETE PARADIGM SHIFT | 7D Hyperbolic Core ACTIVE       ║")
     println("╚═══════════════════════════════════════════════════════════════════════╝")
-    println("   Author: Sir Charles Spikes / Arthur (BASEDGOD)")
+    println("   Author: Sir Charles Spikes (BASEDGOD)")
     println("   GitHub: https://github.com/basedgod55hjl")
     println()
-    println("   Status: Core Rebuild 100% Complete.")
-    println("   Modules: Abrasax, GenesisRunner, LM-Studio-Bridge ACTIVE.")
+    println("   [!] STATUS: THE MASTER MANIFESTO IS COMPILED. ABRACADABRA. [!]")
+    println("   [!] Φ Threshold: Golden Coherence Detected.                [!]")
 end
 
 export welcome, launch_system

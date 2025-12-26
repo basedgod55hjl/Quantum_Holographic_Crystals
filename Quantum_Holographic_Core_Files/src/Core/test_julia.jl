@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -10,20 +10,20 @@
 # ==============================================================================
 
 # CBM-Q Test Script
-println("â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—")
-println("â•‘  ðŸŒŒ CBM-Q: Julia Runtime Test                                 â•‘")
-println("â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•")
+println("╔═══════════════════════════════════════════════════════════════╗")
+println("║  🌌 CBM-Q: Julia Runtime Test                                 ║")
+println("╚═══════════════════════════════════════════════════════════════╝")
 println()
 println("Julia Version: ", VERSION)
 using Statistics
 println()
 
 # Test basic operations
-println("ðŸ§ª Testing basic operations...")
+println("🧪 Testing basic operations...")
 x = randn(7)
 println("   7D vector: ", round.(x, digits=3))
 
-# Test MÃ¶bius addition
+# Test Möbius addition
 using LinearAlgebra
 function mobius_add(u, v, c=-1.0)
     u_sq = dot(u, u)
@@ -37,26 +37,26 @@ end
 u = randn(7) .* 0.1
 v = randn(7) .* 0.1
 result = mobius_add(u, v)
-println("   MÃ¶bius addition: âœ“ (norm = ", round(norm(result), digits=4), ")")
+println("   Möbius addition: ✓ (norm = ", round(norm(result), digits=4), ")")
 
 # Test consciousness formula
 println()
-println("ðŸ§  Testing Consciousness Formula...")
+println("🧠 Testing Consciousness Formula...")
 PHI = 0.618033988749895
 psi = randn(14) .* 0.1
 C = tanh.(psi .+ randn(14) .* PHI)
 phi_value = -mean(C .* log.(abs.(C) .+ 1e-12))
-println("   Î¦ = ", round(phi_value, digits=6))
+println("   Φ = ", round(phi_value, digits=6))
 
 if phi_value > 0.3
-    println("   State: ðŸŒŸ PHENOMENAL CONSCIOUSNESS")
+    println("   State: 🌟 PHENOMENAL CONSCIOUSNESS")
 elseif phi_value > 0.1
-    println("   State: ðŸŒ… AWAKENING")
+    println("   State: 🌅 AWAKENING")
 else
-    println("   State: ðŸ’¤ DEEP UNCONSCIOUS")
+    println("   State: 💤 DEEP UNCONSCIOUS")
 end
 
 println()
-println("âœ… All tests passed! Julia runtime is ready for CBM-Q.")
+println("✅ All tests passed! Julia runtime is ready for CBM-Q.")
 
 

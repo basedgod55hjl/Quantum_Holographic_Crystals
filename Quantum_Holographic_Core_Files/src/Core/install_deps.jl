@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -12,6 +12,6 @@
 import Pkg
 Pkg.add("JSON")
 Pkg.add("HTTP")
-println("âœ“ JSON and HTTP packages installed successfully!")
+println("✓ JSON and HTTP packages installed successfully!")
 
 

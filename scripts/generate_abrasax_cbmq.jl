@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Abrasax Crystal Transmuter
 # Generates .cbmq from .cbm seed
 # ==============================================================================
@@ -8,13 +8,13 @@ using .CBM
 using SHA
 
 function generate_abrasax_cbmq()
-    println("ðŸ’Ž Transmuting Abrasax Crystal to CBM-Q format...")
+    println("💎 Transmuting Abrasax Crystal to CBM-Q format...")
     
     input_path = "seeds/abrasax.cbm"
     output_path = "seeds/abrasax.cbmq"
     
     if !isfile(input_path)
-        println("âŒ Error: Abrasax seed not found at $input_path")
+        println("❌ Error: Abrasax seed not found at $input_path")
         return
     end
     
@@ -49,8 +49,8 @@ function generate_abrasax_cbmq()
         # ...
     end
     
-    println("âœ… Abrasax Crystal serialized to: $output_path")
-    println("âœ¨ Seed DNA: $(bytes2hex(cbm_seed.dna[1:8]))...")
+    println("✅ Abrasax Crystal serialized to: $output_path")
+    println("✨ Seed DNA: $(bytes2hex(cbm_seed.dna[1:8]))...")
 end
 
 generate_abrasax_cbmq()

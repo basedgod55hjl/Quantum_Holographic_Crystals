@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
@@ -17,7 +17,7 @@ Loads a GGUF model binary into memory for the CBM runtime to process.
 Ideally, this maps the file to allow for zero-copy access where possible.
 """
 function load_gguf_model(path::String)
-    @info "ðŸ”Œ GGUF-Bridge: Loading model from: $path"
+    @info "🔌 GGUF-Bridge: Loading model from: $path"
     if !isfile(path)
         error("Model file not found: $path")
     end
@@ -41,7 +41,7 @@ function llama_infer(model_data::Vector{UInt8}, prompt::String)
     # This is a stub for actual llama.cpp ccall binding
     # We would use @ccall here to invoke libllama.so / llama.dll
     
-    @info "ðŸ§  LLaMA Cortex Activated: Processing '$prompt'..."
+    @info "🧠 LLaMA Cortex Activated: Processing '$prompt'..."
     
     # Simulation of inference latency
     sleep(0.1) 

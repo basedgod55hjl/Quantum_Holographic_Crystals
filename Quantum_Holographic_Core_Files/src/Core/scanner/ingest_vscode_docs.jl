@@ -1,15 +1,15 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: DOCUMENTATION INGESTION ENGINE
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: DOCUMENTATION INGESTION ENGINE
+# ═══════════════════════════════════════════════════════════════════════════════
 # This engine scans cloned documentation to extract architectural wisdom.
 # Target: microsoft/vscode-docs
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQIngestor
 
@@ -25,11 +25,11 @@ struct ArchitecturalInsight
 end
 
 function ingest_directory(root::String)
-    println("ðŸš€ CBM-Q: Initiating Intelligence Ingestion from $root...")
+    println("🚀 CBM-Q: Initiating Intelligence Ingestion from $root...")
     insights = ArchitecturalInsight[]
     
     if !isdir(root)
-        println("âŒ Error: Directory not found.")
+        println("❌ Error: Directory not found.")
         return insights
     end
     
@@ -72,16 +72,16 @@ function ingest_directory(root::String)
 end
 
 function report_insights(insights::Vector{ArchitecturalInsight})
-    println("\n" * "â•" ^ 60)
-    println("âœ… CBM-Q: INTELLIGENCE SYNTHESIS COMPLETE")
-    println("â•" ^ 60)
+    println("\n" * "═" ^ 60)
+    println("✅ CBM-Q: INTELLIGENCE SYNTHESIS COMPLETE")
+    println("═" ^ 60)
     for (i, insight) in enumerate(insights)
-        println("[$i] âœ¨ $(insight.category): $(insight.title)")
+        println("[$i] ✨ $(insight.category): $(insight.title)")
         println("    Summary: $(insight.summary)")
         println("    Source:  $(insight.source)\n")
     end
-    println("â•" ^ 60)
-    println("ðŸŒŒ CBM-Q Crystal Studio logic hardened with $(length(insights)) new architectural nodes.")
+    println("═" ^ 60)
+    println("🌌 CBM-Q Crystal Studio logic hardened with $(length(insights)) new architectural nodes.")
 end
 
 end # module

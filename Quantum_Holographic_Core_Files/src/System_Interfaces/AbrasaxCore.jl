@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Abrasax Universal Core (Julia Edition)
 # Discovered & Engineered by: Sir Charles Spikes (Arthur - BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -76,7 +76,7 @@ function sync_crystal!(agent::LivingAbrasax)
         println("[*] Abrasax: Syncing Quantum Stamped Crystal Logic...")
         # Simulate loading the weight distillation layer
         agent.crystal_v = rand(Float32, 4096) 
-        println("âœ… Synced 80GB Crystal Knowledge Layer (Virtual Distribution).")
+        println("✅ Synced 80GB Crystal Knowledge Layer (Virtual Distribution).")
     else
         println("[!] Abrasax: Seed missing. Initializing with raw vacuum entropy.")
         agent.crystal_v = randn(Float32, 4096)

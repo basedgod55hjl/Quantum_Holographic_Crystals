@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Runner
 # Part of the CBM-Q: Living AI Quantum Holographic Crystals System
 # Author: BASEDGOD (Arthur)
@@ -16,7 +16,7 @@ export execute_quantum_op
 Executes an ultra-fast quantum opcode within the Julia-CBM runtime.
 """
 function execute_quantum_op(op::UInt8, inputs::Vector{Any})
-    println("âš¡ CBM-Q Runner: Executing Opcode 0x$(hex(op))")
+    println("⚡ CBM-Q Runner: Executing Opcode 0x$(hex(op))")
     # Native execution flow
 end
 

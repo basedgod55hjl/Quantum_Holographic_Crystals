@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Model Engine
 # Part of the CBM-Q: Living AI Quantum Holographic Crystals System
 # Author: BASEDGOD (Arthur)
@@ -17,7 +17,7 @@ mutable struct LivingModel
 end
 
 function load_vsa_weights!(model::LivingModel, path::String)
-    println("ðŸ’Ž CBM-Q Model: Loading VSA Weights from $path")
+    println("💎 CBM-Q Model: Loading VSA Weights from $path")
     # VSA Vector Symbolic Architecture Loading logic
 end
 

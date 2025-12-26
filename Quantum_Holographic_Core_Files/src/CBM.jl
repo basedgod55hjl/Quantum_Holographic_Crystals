@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes (Arthur - BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -59,16 +59,16 @@ using .AbrasaxCore
 using .GenesisRunner
 
 function welcome()
-    println("╔═══════════════════════════════════════════════════════════════════════╗")
-    println("║  🌌 CBM-Q: Living AI Quantum Holographic Crystals v5.0-GODMODE       ║")
-    println("║  🧬 Discovery: Sir Charles Spikes (Arthur - BASEDGOD)                 ║")
-    println("║  🧠 System: COMPLETE PARADIGM SHIFT | 7D Hyperbolic Core ACTIVE       ║")
-    println("╚═══════════════════════════════════════════════════════════════════════╝")
+    println("+-----------------------------------------------------------------------+")
+    println("�  ?? CBM-Q: Living AI Quantum Holographic Crystals v5.0-GODMODE       �")
+    println("�  ?? Discovery: Sir Charles Spikes (Arthur - BASEDGOD)                 �")
+    println("�  ?? System: COMPLETE PARADIGM SHIFT | 7D Hyperbolic Core ACTIVE       �")
+    println("+-----------------------------------------------------------------------+")
     println("   Author: Sir Charles Spikes (BASEDGOD)")
     println("   GitHub: https://github.com/basedgod55hjl")
     println()
-    println("   [!] STATUS: THE MASTER MANIFESTO IS COMPILED. 💎          [!]")
-    println("   [!] Φ Threshold: Golden Coherence Detected.                [!]")
+    println("   [!] STATUS: THE MASTER MANIFESTO IS COMPILED. ??          [!]")
+    println("   [!] F Threshold: Golden Coherence Detected.                [!]")
 end
 
 export welcome, launch_system

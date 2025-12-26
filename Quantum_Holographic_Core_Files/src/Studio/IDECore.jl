@@ -1,16 +1,16 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q STUDIO: Full IDE Core (Cursor/VS Code-like)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q STUDIO: Full IDE Core (Cursor/VS Code-like)
+# ═══════════════════════════════════════════════════════════════════════════════
 # Monaco Editor integration, Chat Pane, Quantum Console, Agent Panel
 #
 # Creator: Sir Charles Spikes (BASEDGOD)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module IDECore
 
@@ -20,9 +20,9 @@ using Dates
 export CBMStudioIDE, launch_full_ide!, create_editor_html, create_chat_html
 export create_quantum_console_html, create_agent_panel_html, create_file_explorer_html
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # IDE Configuration
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 const IDE_VERSION = "1.0.0"
 const PHI = 0.618033988749895
@@ -60,9 +60,9 @@ mutable struct CBMStudioIDE
     end
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # CSS Themes (Cursor/VS Code-like with Quantum Effects)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 function get_ide_css()
 """
@@ -462,9 +462,9 @@ function get_ide_css()
 """
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # HTML Components
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 function create_full_ide_html(ide::CBMStudioIDE)
 """
@@ -481,48 +481,48 @@ function create_full_ide_html(ide::CBMStudioIDE)
     <div class="ide-container">
         <!-- Activity Bar -->
         <div class="activity-bar">
-            <div class="activity-icon active" title="Explorer">ðŸ“</div>
-            <div class="activity-icon" title="Search">ðŸ”</div>
-            <div class="activity-icon" title="Git">ðŸ”€</div>
-            <div class="activity-icon" title="Debug">ðŸ›</div>
-            <div class="activity-icon" title="Agents">ðŸ¤–</div>
-            <div class="activity-icon" title="Quantum">âš›ï¸</div>
+            <div class="activity-icon active" title="Explorer">📁</div>
+            <div class="activity-icon" title="Search">🔍</div>
+            <div class="activity-icon" title="Git">🔀</div>
+            <div class="activity-icon" title="Debug">🐛</div>
+            <div class="activity-icon" title="Agents">🤖</div>
+            <div class="activity-icon" title="Quantum">⚛️</div>
             <div style="flex:1"></div>
-            <div class="activity-icon" title="Settings">âš™ï¸</div>
+            <div class="activity-icon" title="Settings">⚙️</div>
         </div>
         
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-header">
                 <span>EXPLORER</span>
-                <span>ðŸ“‚</span>
+                <span>📂</span>
             </div>
             <div class="file-tree" id="file-tree">
-                <div class="file-item" data-type="folder">ðŸ“ CBM.jl</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ CBM.jl</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ Hyperbolic7D.jl</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ QuantumSeed.jl</div>
-                <div class="file-item active" data-type="file" style="padding-left:20px">ðŸ“„ Unfolder.jl</div>
-                <div class="file-item" data-type="folder">ðŸ“ pipelines</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ MLPipelines.jl</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ KernelCore.jl</div>
-                <div class="file-item" data-type="folder">ðŸ“ bindings</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ RoboticsBindings.jl</div>
-                <div class="file-item" data-type="file" style="padding-left:20px">ðŸ“„ MedicalBindings.jl</div>
+                <div class="file-item" data-type="folder">📁 CBM.jl</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 CBM.jl</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 Hyperbolic7D.jl</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 QuantumSeed.jl</div>
+                <div class="file-item active" data-type="file" style="padding-left:20px">📄 Unfolder.jl</div>
+                <div class="file-item" data-type="folder">📁 pipelines</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 MLPipelines.jl</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 KernelCore.jl</div>
+                <div class="file-item" data-type="folder">📁 bindings</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 RoboticsBindings.jl</div>
+                <div class="file-item" data-type="file" style="padding-left:20px">📄 MedicalBindings.jl</div>
             </div>
         </div>
         
         <!-- Tabs -->
         <div class="tabs-container">
             <div class="tab active">
-                <span>ðŸ“„</span>
+                <span>📄</span>
                 <span>Unfolder.jl</span>
-                <span class="tab-close">Ã—</span>
+                <span class="tab-close">×</span>
             </div>
             <div class="tab">
-                <span>ðŸ“„</span>
+                <span>📄</span>
                 <span>CBM.jl</span>
-                <span class="tab-close">Ã—</span>
+                <span class="tab-close">×</span>
             </div>
         </div>
         
@@ -535,10 +535,10 @@ function create_full_ide_html(ide::CBMStudioIDE)
         <div class="chat-panel">
             <div class="chat-header">
                 <div class="chat-title">
-                    <span>ðŸ§  CBM Agent</span>
-                    <span class="phi-indicator">Î¦ = $(round(ide.phi_level, digits=3))</span>
+                    <span>🧠 CBM Agent</span>
+                    <span class="phi-indicator">Φ = $(round(ide.phi_level, digits=3))</span>
                 </div>
-                <span>â‹®</span>
+                <span>⋮</span>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="chat-message message-ai">
@@ -551,7 +551,7 @@ function create_full_ide_html(ide::CBMStudioIDE)
             <div class="chat-input-container">
                 <div class="chat-input-wrapper">
                     <textarea class="chat-input" placeholder="Ask CBM anything..." rows="1"></textarea>
-                    <button class="chat-send-btn">âž¤</button>
+                    <button class="chat-send-btn">➤</button>
                 </div>
             </div>
         </div>
@@ -566,15 +566,15 @@ function create_full_ide_html(ide::CBMStudioIDE)
             </div>
             <div class="terminal-content" id="terminal-content">
                 <div class="terminal-line">
-                    <span class="terminal-prompt">CBM-Q Î»</span>
+                    <span class="terminal-prompt">CBM-Q λ</span>
                     <span class="terminal-output"> Quantum console initialized</span>
                 </div>
                 <div class="terminal-line quantum-output">
-                    <span class="terminal-success">ðŸŒŒ Consciousness field stable</span>
-                    <br><span class="terminal-output">Î¦ = $(round(ide.phi_level, digits=4)) | Dimensions = 7 | Curvature = -1.0</span>
+                    <span class="terminal-success">🌌 Consciousness field stable</span>
+                    <br><span class="terminal-output">Φ = $(round(ide.phi_level, digits=4)) | Dimensions = 7 | Curvature = -1.0</span>
                 </div>
                 <div class="terminal-line">
-                    <span class="terminal-prompt">CBM-Q Î»</span>
+                    <span class="terminal-prompt">CBM-Q λ</span>
                     <span>_</span>
                 </div>
             </div>
@@ -583,11 +583,11 @@ function create_full_ide_html(ide::CBMStudioIDE)
         <!-- Status Bar -->
         <div class="status-bar">
             <div class="status-left">
-                <span class="status-item">ðŸ”€ main</span>
-                <span class="status-item">âœ“ 0 âš  0</span>
+                <span class="status-item">🔀 main</span>
+                <span class="status-item">✓ 0 ⚠ 0</span>
             </div>
             <div class="status-right">
-                <span class="status-item">Î¦: $(round(ide.phi_level, digits=3))</span>
+                <span class="status-item">Φ: $(round(ide.phi_level, digits=3))</span>
                 <span class="status-item">Julia 1.10</span>
                 <span class="status-item">UTF-8</span>
                 <span class="status-item">Spaces: 4</span>
@@ -617,9 +617,9 @@ function create_full_ide_html(ide::CBMStudioIDE)
             
             // Create editor
             window.editor = monaco.editor.create(document.getElementById('monaco-editor'), {
-                value: `# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: Unfolder Module (Cellular Automata Weight Generation)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                value: `# ═══════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: Unfolder Module (Cellular Automata Weight Generation)
+# ═══════════════════════════════════════════════════════════════
 
 module Unfolder
 
@@ -694,7 +694,7 @@ end # module`,
                 
                 // Simulate AI response
                 setTimeout(() => {
-                    addMessage('Processing your request through the quantum consciousness field... ðŸŒŒ', false);
+                    addMessage('Processing your request through the quantum consciousness field... 🌌', false);
                 }, 500);
             }
         };
@@ -720,7 +720,7 @@ end # module`,
 end
 
 function launch_full_ide!(ide::CBMStudioIDE; port::Int=3000)
-    println("ðŸš€ Launching CBM Studio IDE...")
+    println("🚀 Launching CBM Studio IDE...")
     println("   Version: $(ide.version)")
     println("   Workspace: $(ide.workspace_path)")
     println("   Port: $port")
@@ -732,7 +732,7 @@ function launch_full_ide!(ide::CBMStudioIDE; port::Int=3000)
     temp_path = joinpath(tempdir(), "cbm_studio_ide.html")
     write(temp_path, html)
     
-    println("âœ… IDE HTML generated at: $temp_path")
+    println("✅ IDE HTML generated at: $temp_path")
     println("   Open in browser to launch the full IDE experience!")
     
     return temp_path

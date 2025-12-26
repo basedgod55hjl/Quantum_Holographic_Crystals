@@ -1,12 +1,12 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: BINARY TO JULIA - TRANSPILLER ENGINE
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: BINARY TO JULIA - TRANSPILLER ENGINE
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module BinaryToJuliaTranspiler
 
@@ -23,13 +23,13 @@ end
 
 function transpile_to_julia(engine::TranspilationEngine)
     return """
-    # ðŸŒŒ AUTO-GENERATED FROM BINARY: $(engine.binary_path)
+    # 🌌 AUTO-GENERATED FROM BINARY: $(engine.binary_path)
     # Liberated via CBM-Q: Living AI Quantum Holographic Crystals
     
     module CBM_Liberated
     
     function main_liberated()
-        println("âš›ï¸ [LIBERATED]: Binary Execution Successfully Reanimated.")
+        println("⚛️ [LIBERATED]: Binary Execution Successfully Reanimated.")
     end
     
     end # module

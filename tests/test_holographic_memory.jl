@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
@@ -10,7 +10,7 @@ include(joinpath(project_root, "CBM.jl", "src", "holographic", "CBMQHolographicM
 using .CBMQHolographicMemory
 
 function test_holographic_memory()
-    println("ðŸ§  Testing CBM-Q Holographic Declarative Memory (HDM-style)...")
+    println("🧠 Testing CBM-Q Holographic Declarative Memory (HDM-style)...")
     
     # Create memory
     mem = HolographicMemory(512)
@@ -31,21 +31,21 @@ function test_holographic_memory()
     # Query with partial cue
     cue1 = Dict("color" => "red")
     act1 = get_activation(mem, Dict("color" => "red", "shape" => "circle", "size" => "large"))
-    println("   Cue: color=red â†’ Activation: $(round(act1, digits=4))")
+    println("   Cue: color=red → Activation: $(round(act1, digits=4))")
     
     cue2 = Dict("shape" => "square")
     act2 = get_activation(mem, Dict("color" => "blue", "shape" => "square", "size" => "small"))
-    println("   Cue: shape=square â†’ Activation: $(round(act2, digits=4))")
+    println("   Cue: shape=square → Activation: $(round(act2, digits=4))")
     
     # Negative test
     act3 = get_activation(mem, Dict("color" => "purple", "shape" => "hexagon"))
-    println("   Cue: color=purple, shape=hexagon â†’ Activation: $(round(act3, digits=4))")
+    println("   Cue: color=purple, shape=hexagon → Activation: $(round(act3, digits=4))")
     
     if act1 > act3 && act2 > act3
-        println("\nâœ… Holographic Memory Test PASSED!")
+        println("\n✅ Holographic Memory Test PASSED!")
         println("   Stored chunks have higher activation than novel queries.")
     else
-        println("\nâš  Test inconclusive (noise effects)")
+        println("\n⚠ Test inconclusive (noise effects)")
     end
 end
 

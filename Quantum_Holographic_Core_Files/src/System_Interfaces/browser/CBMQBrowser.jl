@@ -1,17 +1,17 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: INTEGRATED BROWSER & WASM ENGINE
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: INTEGRATED BROWSER & WASM ENGINE
+# ═══════════════════════════════════════════════════════════════════════════════
 # Integrated web browsing and WASM runtime for the CBM-Q IDE.
 # Supports standard URLs and internal WASM execution.
 #
 # Creator: Sir Charles Spikes (BASEDGOD)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQBrowser
 
@@ -44,7 +44,7 @@ function navigate_to!(browser::IDEBrowser, url::String)
     browser.current_url = url
     browser.is_wasm_mode = false
     push!(browser.history, url)
-    println("ðŸŒ CBM-Q Browser: Navigating to $url")
+    println("🌐 CBM-Q Browser: Navigating to $url")
 end
 
 """
@@ -56,7 +56,7 @@ function load_wasm_to_browser!(browser::IDEBrowser, wasm_path::String)
     browser.is_wasm_mode = true
     browser.wasm_target = wasm_path
     browser.current_url = "cbmq://wasm-runner/$(basename(wasm_path))"
-    println("âš›ï¸ CBM-Q Browser: Loading WASM binary: $wasm_path")
+    println("⚛️ CBM-Q Browser: Loading WASM binary: $wasm_path")
 end
 
 """
@@ -65,14 +65,14 @@ end
 Generates the HTML representation for the integrated browser tab.
 """
 function render_browser_html(browser::IDEBrowser)
-    title = browser.is_wasm_mode ? "âš›ï¸ WASM Browser: $(basename(browser.wasm_target))" : "ðŸŒ Browser: $(browser.current_url)"
+    title = browser.is_wasm_mode ? "⚛️ WASM Browser: $(basename(browser.wasm_target))" : "🌐 Browser: $(browser.current_url)"
     
     html = """
     <div class="browser-tab-container" style="height: 100%; display: flex; flex-direction: column;">
         <div class="browser-navbar" style="padding: 8px; background: #1a1a24; display: flex; gap: 8px; border-bottom: 1px solid #2a2a35;">
-            <button class="nav-btn">â†</button>
-            <button class="nav-btn">â†’</button>
-            <button class="nav-btn">â†»</button>
+            <button class="nav-btn">←</button>
+            <button class="nav-btn">→</button>
+            <button class="nav-btn">↻</button>
             <input type="text" value="$(browser.current_url)" style="flex: 1; background: #0a0a0f; color: #e4e4e8; border: 1px solid #2a2a35; padding: 4px 12px; border-radius: 4px;">
             <div class="browser-status" style="font-size: 11px; padding: 4px; color: $(browser.is_wasm_mode ? "#06b6d4" : "#10b981")">
                 $(browser.is_wasm_mode ? "WASM ACTIVE" : "SECURE")
@@ -89,7 +89,7 @@ end
 function render_wasm_overlay(browser::IDEBrowser)
     return """
     <div style="width: 100%; height: 100%; background: #000; color: #0f0; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: monospace;">
-        <div style="font-size: 24px; margin-bottom: 20px;">âš›ï¸ CBM-Q WASM RUNTIME</div>
+        <div style="font-size: 24px; margin-bottom: 20px;">⚛️ CBM-Q WASM RUNTIME</div>
         <div style="border: 1px solid #0f0; padding: 20px; width: 80%; max-height: 60%; overflow: auto;">
             [SYSTEM]: Initializing WASM Engine...<br>
             [SYSTEM]: Loading $(basename(browser.wasm_target))...<br>

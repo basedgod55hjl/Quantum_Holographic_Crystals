@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -9,12 +9,12 @@
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: CURSOR LIBERATION SEQUENCE
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: CURSOR LIBERATION SEQUENCE
+# ═══════════════════════════════════════════════════════════════════════════════
 # Target: C:\Users\BASEDGOD\AppData\Local\Programs\cursor\Cursor.exe
 # Task:   Decompile, Rebrand, Reanimate as "CBM-Q Quantum Studio"
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 # Selective import for demonstration
 project_root = dirname(@__FILE__)
@@ -30,51 +30,51 @@ using .CBM.StealthUIGrabber
 using .CBM.CBMQReasoner
 
 function liberate_cursor(target_path::String)
-    println("ðŸš€ INITIATING OPERATION: LIBERATION OF CURSOR")
-    println("ðŸ“ Target: $target_path")
+    println("🚀 INITIATING OPERATION: LIBERATION OF CURSOR")
+    println("📍 Target: $target_path")
     
     # 1. Memory Analysis
-    println("\n[1/6] ðŸ“¦ Creating naked binary snapshot...")
+    println("\n[1/6] 📦 Creating naked binary snapshot...")
     binary = QuantumDecompiler.NakedBinary(target_path)
     println("   Found $(length(binary.entry_points)) potential entry points.")
     
     # 2. UI Theft
-    println("\n[2/6] ðŸŽ¨ Harvesting UI/UX Architecture...")
+    println("\n[2/6] 🎨 Harvesting UI/UX Architecture...")
     # Mocking a process ID for simulation
     ui_clone = UIHarvester.InterfaceClone(7777)
     println("   Successfully cloned widget tree: $(ui_clone.widget_tree["root"])")
     
     # 3. Swarm Decompilation
-    println("\n[3/6] ðŸ Deploying 32-worker decompilation swarm...")
+    println("\n[3/6] 🐝 Deploying 32-worker decompilation swarm...")
     colony = DecompileSwarm.BinaryColony(32)
     liberated_code = DecompileSwarm.parallel_decompile(colony, target_path)
     println("   Code reassembled and translated to Julia-Dominance format.")
     
     # 4. Transpilation
-    println("\n[4/6] ðŸ”„ Transpiling Binary logic to CBM-Q Crystals...")
+    println("\n[4/6] 🔄 Transpiling Binary logic to CBM-Q Crystals...")
     engine = BinaryToJuliaTranspiler.TranspilationEngine(target_path)
     final_julia_code = BinaryToJuliaTranspiler.transpile_to_julia(engine)
     
     # 5. Rebranding
-    println("\n[5/6] ðŸ·ï¸ Applying CBM-Q Branding & Aesthetics...")
+    println("\n[5/6] 🏷️ Applying CBM-Q Branding & Aesthetics...")
     rebranded_name = "CBM-Q: Living AI Quantum Holographic Crystal Studio"
     println("   New Title: $rebranded_name")
     println("   Applying HSL Tailored Color Palettes...")
     
     # 6. Reanimation
-    println("\n[6/6] âš¡ Reanimating Binary as Sovereign Entity...")
+    println("\n[6/6] ⚡ Reanimating Binary as Sovereign Entity...")
     # Simulation of reanimation
     reanimator = BinaryReanimator.LiveBinary(target_path)
     println("   Hooked $(length(reanimator.hooked_imports)) UI rendering pipelines.")
     
-    println("\n[7/7] ðŸ§  Consulting DeepSeek R1 for final architectural validation...")
+    println("\n[7/7] 🧠 Consulting DeepSeek R1 for final architectural validation...")
     reasoning = CBMQReasoner.ask_deepseek("Analyze the liberated binary at $target_path and confirm quantum resonance.")
     println("   Output: $reasoning")
     
-    println("\n" * "â•" ^ 60)
-    println("âœ… OPERATION COMPLETE: CURSOR HAS BEEN LIBERATED.")
-    println("ðŸ“ Output: C:\\Users\\BASEDGOD\\.gemini\\antigravity\\liberated\\CBMQ_Studio.exe")
-    println("â•" ^ 60)
+    println("\n" * "═" ^ 60)
+    println("✅ OPERATION COMPLETE: CURSOR HAS BEEN LIBERATED.")
+    println("📁 Output: C:\\Users\\BASEDGOD\\.gemini\\antigravity\\liberated\\CBMQ_Studio.exe")
+    println("═" ^ 60)
 end
 
 # Check if target exists

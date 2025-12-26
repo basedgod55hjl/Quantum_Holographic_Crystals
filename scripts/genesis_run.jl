@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
@@ -30,7 +30,7 @@ function main()
     p1 = HyperbolicPoint(CBM.Hyperbolic7D.SVector{7}(0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
     p2 = HyperbolicPoint(CBM.Hyperbolic7D.SVector{7}(0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
     p3 = moebius_add(p1, p2)
-    println("   MÃ¶bius Addition Result: ", p3)
+    println("   Möbius Addition Result: ", p3)
 end
 
 main()

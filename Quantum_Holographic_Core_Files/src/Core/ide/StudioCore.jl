@@ -1,12 +1,12 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM Studio: Core IDE Logic (Sovereign Edition)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM Studio: Core IDE Logic (Sovereign Edition)
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module StudioCore
 
@@ -18,9 +18,9 @@ using JSON
 
 export CBMWindow, launch_ide_window, update_water_background
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # UI Templates (Stealing the "Cursor" Look)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 const STUDIO_CSS = """
 <style>
@@ -123,25 +123,25 @@ const STUDIO_HTML = """
         <!-- Sidebar: Swarm & Files -->
         <div class="sidebar">
             <div class="glass-panel">
-                <h3>ðŸŒŒ CBM Swarm</h3>
+                <h3>🌌 CBM Swarm</h3>
                 <div id="agent-list">
-                    <div>ðŸ”® OVERSEER: <span style="color:#0f0">ACTIVE</span></div>
-                    <div>ðŸ§  CODER: <span style="color:#0f0">CODING</span></div>
-                    <div>ðŸ›¡ï¸ SCANNER: <span style="color:#ff0">INDEXING</span></div>
+                    <div>🔮 OVERSEER: <span style="color:#0f0">ACTIVE</span></div>
+                    <div>🧠 CODER: <span style="color:#0f0">CODING</span></div>
+                    <div>🛡️ SCANNER: <span style="color:#ff0">INDEXING</span></div>
                 </div>
             </div>
             
             <div class="glass-panel" style="flex:1;">
-                <h3>ðŸ“‚ Project</h3>
+                <h3>📂 Project</h3>
                 <ul style="list-style:none; padding:0; font-size:0.9em;">
-                    <li>ðŸ“ CBM.jl</li>
-                    <li style="padding-left:15px">ðŸ“„ src/CBM.jl</li>
-                    <li style="padding-left:15px">ðŸ“„ src/StudioCore.jl</li>
+                    <li>📁 CBM.jl</li>
+                    <li style="padding-left:15px">📄 src/CBM.jl</li>
+                    <li style="padding-left:15px">📄 src/StudioCore.jl</li>
                 </ul>
             </div>
             
             <div class="swarm-status">
-                Î¦ Metric: 0.72 | VRAM: 14.2 GB
+                Φ Metric: 0.72 | VRAM: 14.2 GB
             </div>
         </div>
         
@@ -158,7 +158,7 @@ const STUDIO_HTML = """
             <!-- Bottom: Terminal -->
             <div class="terminal-pane">
                 <div>> julia> CBM.demo()</div>
-                <div>  ðŸŒŒ Manifold Stabilized. Swarm Active.</div>
+                <div>  🌌 Manifold Stabilized. Swarm Active.</div>
                 <div style="color:var(--cbm-accent)">> _</div>
             </div>
         </div>
@@ -167,9 +167,9 @@ const STUDIO_HTML = """
 </html>
 """
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Window Management
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 mutable struct CBMWindow
     w::Window
@@ -194,7 +194,7 @@ function launch_ide_window()
     body!(w, STUDIO_HTML)
     
     # Initialize Water Simulation (Pseudo-code for now until JS bridge is tight)
-    # js(w, Blink.JSString("console.log('ðŸŒŒ Initiating WaterLily fluid dynamics...');"))
+    # js(w, Blink.JSString("console.log('🌌 Initiating WaterLily fluid dynamics...');"))
     
     return CBMWindow(w, string(rand(UInt64)))
 end

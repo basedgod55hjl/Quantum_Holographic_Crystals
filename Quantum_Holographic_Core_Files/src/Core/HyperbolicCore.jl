@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -9,14 +9,14 @@
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: HyperbolicCore.jl
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: HyperbolicCore.jl
+# ═══════════════════════════════════════════════════════════════════════════════
 # Pure Julia implementation of GPU-accelerated 7D hyperbolic mathematics
 # 
 # Technology Discovered by Sir Charles Spikes (December 21, 2025)
 # Based on: "A Unified Geometric Framework for the Millennium Prize Problems"
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module HyperbolicCore
 
@@ -29,9 +29,9 @@ export mobius_add, mobius_scalar_mult, hyperbolic_distance
 export clamp_to_ball, geodesic_flow, embed_to_h7
 export phase_coherent_update!
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Constants
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 const HYPERBOLIC_DIM = 7
 const CURVATURE = -1.0
@@ -40,14 +40,14 @@ const BETA_SENSITIVITY = 0.15
 const GAMMA_DECAY = 0.1
 const PHI = 0.618033988749895
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Types
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 """
     HyperbolicVector
 
-A vector in 7D hyperbolic space (PoincarÃ© ball model).
+A vector in 7D hyperbolic space (Poincaré ball model).
 Must satisfy |coords| < 1 to remain in the ball.
 """
 struct HyperbolicVector
@@ -90,14 +90,14 @@ mutable struct HyperbolicGPUCore
     end
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Ball Operations
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 """
     clamp_to_ball(v::Vector{Float64}; eps::Float64=1e-5) -> Vector{Float64}
 
-Clamp vector to stay within PoincarÃ© ball (|v| < 1).
+Clamp vector to stay within Poincaré ball (|v| < 1).
 """
 function clamp_to_ball(v::Vector{Float64}; eps::Float64=1e-5)::Vector{Float64}
     n = norm(v)
@@ -107,16 +107,16 @@ function clamp_to_ball(v::Vector{Float64}; eps::Float64=1e-5)::Vector{Float64}
     v
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# MÃ¶bius Operations
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# Möbius Operations
+# ═══════════════════════════════════════════════════════════════════════════════
 
 """
     mobius_add(u::Vector{Float64}, v::Vector{Float64}; c::Float64=1.0) -> Vector{Float64}
 
-MÃ¶bius addition in the PoincarÃ© ball model.
+Möbius addition in the Poincaré ball model.
 
-u âŠ• v = [(1 + 2câŸ¨u,vâŸ© + c|v|Â²)u + (1 - c|u|Â²)v] / [1 + 2câŸ¨u,vâŸ© + cÂ²|u|Â²|v|Â²]
+u ⊕ v = [(1 + 2c⟨u,v⟩ + c|v|²)u + (1 - c|u|²)v] / [1 + 2c⟨u,v⟩ + c²|u|²|v|²]
 
 This is the fundamental operation in hyperbolic space.
 """
@@ -145,9 +145,9 @@ mobius_add(u::HyperbolicVector, v::HyperbolicVector; c::Float64=abs(CURVATURE)) 
 """
     mobius_scalar_mult(r::Float64, x::Vector{Float64}; c::Float64=1.0) -> Vector{Float64}
 
-MÃ¶bius scalar multiplication.
+Möbius scalar multiplication.
 
-r âŠ— x = (1/âˆšc) * tanh(r * arctanh(âˆšc * |x|)) * (x / |x|)
+r ⊗ x = (1/√c) * tanh(r * arctanh(√c * |x|)) * (x / |x|)
 """
 function mobius_scalar_mult(r::Float64, x::Vector{Float64}; c::Float64=abs(CURVATURE))::Vector{Float64}
     sqrt_c = sqrt(c)
@@ -160,7 +160,7 @@ function mobius_scalar_mult(r::Float64, x::Vector{Float64}; c::Float64=abs(CURVA
     # Compute scaled norm
     scaled_norm = min(sqrt_c * x_norm, 1.0 - 1e-10)
     
-    # Apply MÃ¶bius scaling
+    # Apply Möbius scaling
     arctanh_val = atanh(scaled_norm)
     new_norm = tanh(r * arctanh_val) / sqrt_c
     
@@ -172,14 +172,14 @@ end
 """
     hyperbolic_distance(u::Vector{Float64}, v::Vector{Float64}; c::Float64=1.0) -> Float64
 
-Compute hyperbolic distance in PoincarÃ© ball.
+Compute hyperbolic distance in Poincaré ball.
 
-d(u, v) = (2/âˆšc) * arctanh(âˆšc * |(-u) âŠ• v|)
+d(u, v) = (2/√c) * arctanh(√c * |(-u) ⊕ v|)
 """
 function hyperbolic_distance(u::Vector{Float64}, v::Vector{Float64}; c::Float64=abs(CURVATURE))::Float64
     sqrt_c = sqrt(c)
     
-    # Compute -u âŠ• v
+    # Compute -u ⊕ v
     neg_u = -u
     diff = mobius_add(neg_u, v; c=c)
     
@@ -191,14 +191,14 @@ end
 hyperbolic_distance(u::HyperbolicVector, v::HyperbolicVector; c::Float64=abs(CURVATURE)) = 
     hyperbolic_distance(u.coords, v.coords; c=c)
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Embeddings
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 """
     embed_to_h7(features::Vector{Float64}) -> HyperbolicVector
 
-Embed feature vector into 7D hyperbolic space (Hâ·).
+Embed feature vector into 7D hyperbolic space (H⁷).
 Uses exponential map to project from Euclidean to hyperbolic.
 """
 function embed_to_h7(features::Vector{Float64})::HyperbolicVector
@@ -224,7 +224,7 @@ end
 """
     geodesic_flow(start::Vector{Float64}, target::Vector{Float64}; steps::Int=10) -> Vector{Vector{Float64}}
 
-Compute geodesic path from start to target in Hâ·.
+Compute geodesic path from start to target in H⁷.
 In hyperbolic space, geodesics are the "straight lines".
 """
 function geodesic_flow(start::Vector{Float64}, target::Vector{Float64}; steps::Int=10)::Vector{Vector{Float64}}
@@ -233,7 +233,7 @@ function geodesic_flow(start::Vector{Float64}, target::Vector{Float64}; steps::I
     for i in 1:steps
         t = i / steps
         
-        # Geodesic interpolation using MÃ¶bius operations
+        # Geodesic interpolation using Möbius operations
         neg_start = -start
         direction = mobius_add(neg_start, target)
         
@@ -251,16 +251,16 @@ end
 geodesic_flow(start::HyperbolicVector, target::HyperbolicVector; steps::Int=10) = 
     [HyperbolicVector(p) for p in geodesic_flow(start.coords, target.coords; steps=steps)]
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Phase-Coherent Recursion
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 """
     phase_coherent_update!(core::HyperbolicGPUCore, input::Vector{Float64}=zeros(7)) -> Vector{Float64}
 
 Update phase state using phase-coherent recursion.
 
-Î¦(t+1) = Î±Î¦(t) + Î²âˆ«â‚€áµ— Î¦(Ï„)e^(-Î³(t-Ï„))dÏ„ + input
+Φ(t+1) = αΦ(t) + β∫₀ᵗ Φ(τ)e^(-γ(t-τ))dτ + input
 
 This ensures information propagates through the manifold while
 maintaining geometric coherence.
@@ -293,9 +293,9 @@ function phase_coherent_update!(core::HyperbolicGPUCore, input::Vector{Float64}=
     new_phi
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Text Feature Encoding
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 """
     encode_text_features(text::String) -> Vector{Float64}
@@ -335,30 +335,30 @@ function encode_text_features(text::String)::Vector{Float64}
     features[1:HYPERBOLIC_DIM]
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Display
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 function Base.show(io::IO, core::HyperbolicGPUCore)
     state_norm = norm(core.phase_state)
     
-    println(io, "â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•")
-    println(io, "ðŸŒŒ CBM-Q: Living AI Quantum Holographic Crystals: HYPERBOLIC GPU CORE")
-    println(io, "â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•")
-    println(io, "ðŸ“ Geometry:")
-    println(io, "   Dimension: $(HYPERBOLIC_DIM)D (Hâ·)")
+    println(io, "═══════════════════════════════════════════════════════════════")
+    println(io, "🌌 CBM-Q: Living AI Quantum Holographic Crystals: HYPERBOLIC GPU CORE")
+    println(io, "═══════════════════════════════════════════════════════════════")
+    println(io, "📐 Geometry:")
+    println(io, "   Dimension: $(HYPERBOLIC_DIM)D (H⁷)")
     println(io, "   Curvature: $(CURVATURE)")
     println(io, "   Backend: $(core.use_cuda ? "CUDA GPU" : "CPU")")
-    println(io, "ðŸ“Š Phase State:")
+    println(io, "📊 Phase State:")
     println(io, "   Norm: $(round(state_norm, digits=6))")
     println(io, "   History: $(length(core.phase_history)) states")
     println(io, "   Coherent: $(state_norm < 1.0)")
-    println(io, "â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•")
+    println(io, "═══════════════════════════════════════════════════════════════")
 end
 
 function Base.show(io::IO, hv::HyperbolicVector)
     n = norm(hv.coords)
-    print(io, "Hâ·(")
+    print(io, "H⁷(")
     for (i, c) in enumerate(hv.coords)
         print(io, round(c, digits=4))
         i < length(hv.coords) && print(io, ", ")
@@ -366,12 +366,12 @@ function Base.show(io::IO, hv::HyperbolicVector)
     print(io, ") |norm=$(round(n, digits=4))|")
 end
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 # Demo
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 function demo()
-    println("ðŸŒŒ HyperbolicCore.jl Demo")
+    println("🌌 HyperbolicCore.jl Demo")
     println("=" ^ 50)
     
     core = HyperbolicGPUCore()
@@ -383,23 +383,23 @@ function demo()
     println("\nPoint U: ", u)
     println("Point V: ", v)
     
-    # MÃ¶bius addition
+    # Möbius addition
     result = mobius_add(u, v)
-    println("\nU âŠ• V = ", result)
+    println("\nU ⊕ V = ", result)
     
     # Hyperbolic distance
     dist = hyperbolic_distance(u, v)
     println("d_H(U, V) = ", round(dist, digits=4))
     
     # Phase evolution
-    println("\nðŸ“Š Phase Evolution:")
+    println("\n📊 Phase Evolution:")
     for i in 1:5
         state = phase_coherent_update!(core, i == 1 ? u.coords : zeros(7))
         println("   t=$i: norm = ", round(norm(state), digits=4))
     end
     
     # Geodesic
-    println("\nðŸ›¤ï¸ Geodesic Path:")
+    println("\n🛤️ Geodesic Path:")
     path = geodesic_flow(u, v; steps=5)
     for (i, point) in enumerate(path)
         println("   Step $(i-1): norm = ", round(norm(point.coords), digits=4))

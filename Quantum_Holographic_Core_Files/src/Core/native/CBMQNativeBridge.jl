@@ -1,17 +1,17 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: NATIVE BRIDGE - C & CUDA Interop
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: NATIVE BRIDGE - C & CUDA Interop
+# ═══════════════════════════════════════════════════════════════════════════════
 # Handles direct ccall to C shared libraries and CUDA kernel management.
 # Binds the "wasm in julia" instructions together with "c code build".
 #
 # Creator: Sir Charles Spikes (BASEDGOD)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQNativeBridge
 
@@ -55,7 +55,7 @@ Low-level wrapper for ccall to the C library.
 function call_c_function(proc::NativeProcessor, name::String, ret_type::Type, arg_types::Tuple, args...)
     # In a real build, we'd use dlopen(proc.c_lib_path)
     # This is the "c code build" integration point
-    println("ðŸ› ï¸ CBM-Q Native: Calling C function '$name'...")
+    println("🛠️ CBM-Q Native: Calling C function '$name'...")
     # ccall((name, proc.c_lib_path), ret_type, arg_types, args...)
     return nothing
 end
@@ -71,7 +71,7 @@ function launch_cuda_kernel(proc::NativeProcessor, kernel_name::Symbol, blocks::
         return
     end
     
-    println("âš¡ CBM-Q Native: Launching CUDA kernel '$kernel_name' ($blocks x $threads)...")
+    println("⚡ CBM-Q Native: Launching CUDA kernel '$kernel_name' ($blocks x $threads)...")
     # @cuda blocks=blocks threads=threads kernel_name(args...)
 end
 
@@ -83,7 +83,7 @@ Returns the HTML for the Native System panel.
 function get_native_status(proc::NativeProcessor)
     html = """
     <div class="native-panel" style="padding: 16px;">
-        <div style="font-weight: 600; font-size: 15px; margin-bottom: 20px;">âš¡ NATIVE SYSTEM</div>
+        <div style="font-weight: 600; font-size: 15px; margin-bottom: 20px;">⚡ NATIVE SYSTEM</div>
         
         <div class="status-item" style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <span>CUDA STATUS</span>

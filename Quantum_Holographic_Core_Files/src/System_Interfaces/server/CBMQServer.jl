@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
@@ -22,12 +22,12 @@ end
 
 function start_server!(server::IDEPlatformServer)
     server.is_running = true
-    println("ðŸ“¡ CBM-Q Server: Mock listening on $(server.host):$(server.port)")
+    println("📡 CBM-Q Server: Mock listening on $(server.host):$(server.port)")
 end
 
 function stop_server!(server::IDEPlatformServer)
     server.is_running = false
-    println("ðŸ›‘ CBM-Q Server: Stopped.")
+    println("🛑 CBM-Q Server: Stopped.")
 end
 
 end # module

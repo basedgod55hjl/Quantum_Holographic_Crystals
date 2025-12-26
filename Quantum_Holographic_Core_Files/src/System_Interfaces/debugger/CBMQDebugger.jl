@@ -1,17 +1,17 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: QUANTUM DEBUGGER - Execution Dominion
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: QUANTUM DEBUGGER - Execution Dominion
+# ═══════════════════════════════════════════════════════════════════════════════
 # Integrated visual debugger for Julia code and CBM-Q kernels.
 # Provides breakpoints, call stack tracking, and variable inspection.
 #
 # Creator: Sir Charles Spikes (BASEDGOD)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQDebugger
 
@@ -42,7 +42,7 @@ mutable struct IDEDebugger
     variables::Dict{String, Any}
     
     function IDEDebugger()
-        new(false, "", 0, [], ["main()"], Dict("Î¦" => 0.618, "status" => "STABLE"))
+        new(false, "", 0, [], ["main()"], Dict("Φ" => 0.618, "status" => "STABLE"))
     end
 end
 
@@ -53,19 +53,19 @@ Sets a new breakpoint in the target file.
 """
 function add_breakpoint!(debugger::IDEDebugger, file::String, line::Int)
     push!(debugger.breakpoints, Breakpoint(file, line, true))
-    println("ðŸž CBM-Q Debugger: Breakpoint set at $file:$line")
+    println("🐞 CBM-Q Debugger: Breakpoint set at $file:$line")
 end
 
 function step_over!(debugger::IDEDebugger)
     if debugger.is_active
         debugger.current_line += 1
-        println("â­ï¸ CBM-Q Debugger: Stepped over to line $(debugger.current_line)")
+        println("⏭️ CBM-Q Debugger: Stepped over to line $(debugger.current_line)")
     end
 end
 
 function step_into!(debugger::IDEDebugger)
     if debugger.is_active
-        println("â¬‡ï¸ CBM-Q Debugger: Stepping into function...")
+        println("⬇️ CBM-Q Debugger: Stepping into function...")
         push!(debugger.call_stack, "sub_component_calc()")
     end
 end
@@ -81,16 +81,16 @@ function get_debugger_ui(debugger::IDEDebugger)
     html = """
     <div class="debug-panel-content" style="padding: 12px; font-size: 13px;">
         <div class="debug-controls" style="display: flex; gap: 8px; margin-bottom: 16px;">
-            <button class="dbg-btn" style="background: #10b981;">â–¶ Continue</button>
-            <button class="dbg-btn" style="background: #3b82f6;">â­ï¸ Step Over</button>
-            <button class="dbg-btn" style="background: #7c3aed;">â¬‡ï¸ Step Into</button>
-            <button class="dbg-btn" style="background: #ef4444;">â¹ Stop</button>
+            <button class="dbg-btn" style="background: #10b981;">▶ Continue</button>
+            <button class="dbg-btn" style="background: #3b82f6;">⏭️ Step Over</button>
+            <button class="dbg-btn" style="background: #7c3aed;">⬇️ Step Into</button>
+            <button class="dbg-btn" style="background: #ef4444;">⏹ Stop</button>
         </div>
         
         <div class="debug-section" style="margin-bottom: 12px;">
             <div class="debug-header" style="font-weight: 600; color: #a0a0b0; border-bottom: 1px solid #2a2a35; padding-bottom: 4px;">CALL STACK</div>
             <div class="stack-list" style="padding: 4px 0;">
-                $(join(["<div class='stack-item'>âœ“ $s</div>" for s in reverse(debugger.call_stack)], ""))
+                $(join(["<div class='stack-item'>✓ $s</div>" for s in reverse(debugger.call_stack)], ""))
             </div>
         </div>
 
@@ -104,7 +104,7 @@ function get_debugger_ui(debugger::IDEDebugger)
         <div class="debug-section">
             <div class="debug-header" style="font-weight: 600; color: #a0a0b0; border-bottom: 1px solid #2a2a35; padding-bottom: 4px;">BREAKPOINTS</div>
             <div class="bp-list" style="padding: 4px 0;">
-                $(join(["<div class='bp-item'>â— $(basename(b.file)):$(b.line)</div>" for b in debugger.breakpoints], ""))
+                $(join(["<div class='bp-item'>● $(basename(b.file)):$(b.line)</div>" for b in debugger.breakpoints], ""))
             </div>
         </div>
     </div>

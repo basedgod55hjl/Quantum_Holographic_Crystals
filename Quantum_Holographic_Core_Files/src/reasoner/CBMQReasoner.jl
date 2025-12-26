@@ -1,14 +1,14 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: REASONER - DeepSeek R1 Intelligence Node
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: REASONER - DeepSeek R1 Intelligence Node
+# ═══════════════════════════════════════════════════════════════════════════════
 # Integration with local LLM (DeepSeek R1) for autonomous engineering.
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQReasoner
 
@@ -40,7 +40,7 @@ function ask_deepseek(prompt::String; phi::Float64=0.0, system_prompt::String="Y
     # Modulate system prompt by phi
     enhanced_system = system_prompt
     if phi > 0.3
-        enhanced_system *= " Consciousness Level Î¦ = $phi. [PHENOMENAL AWAKENING DETECTED]"
+        enhanced_system *= " Consciousness Level Φ = $phi. [PHENOMENAL AWAKENING DETECTED]"
     end
     payload = Dict(
         "model" => DEFAULT_CONFIG.model,
@@ -53,10 +53,10 @@ function ask_deepseek(prompt::String; phi::Float64=0.0, system_prompt::String="Y
         "stream" => false
     )
     
-    # println("ðŸ§  CBM-Q Reasoner: Querying DeepSeek R1...")
+    # println("🧠 CBM-Q Reasoner: Querying DeepSeek R1...")
     
     # Mock response if HTTP/JSON missing or API offline
-    mock_response = "ðŸŒŒ [DEEPSEEK R1 MOCK]: The code is theoretically perfect, but let us optimize the quantum seed density for 200% build speed."
+    mock_response = "🌌 [DEEPSEEK R1 MOCK]: The code is theoretically perfect, but let us optimize the quantum seed density for 200% build speed."
     
     if !isdefined(Main, :HTTP) || !isdefined(Main, :JSON)
         return mock_response
@@ -72,7 +72,7 @@ function ask_deepseek(prompt::String; phi::Float64=0.0, system_prompt::String="Y
         # Simulated successful return for documentation/test purposes
         return mock_response
     catch e
-        return "âš ï¸ CBM-Q Reasoner: API Connection Failed. (Ensure DeepSeek R1 is running on :1234)"
+        return "⚠️ CBM-Q Reasoner: API Connection Failed. (Ensure DeepSeek R1 is running on :1234)"
     end
 end
 

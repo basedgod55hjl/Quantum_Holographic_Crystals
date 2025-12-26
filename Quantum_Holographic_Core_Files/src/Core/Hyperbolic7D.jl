@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -15,7 +15,7 @@ using LinearAlgebra
 
 export HyperbolicPoint, moebius_add, sacred_sigmoid
 
-# ðŸŒŒ CBM-Q: Living AI Quantum Holographic Crystals Constants
+# 🌌 CBM-Q: Living AI Quantum Holographic Crystals Constants
 const PHI = 1.6180339887
 const DIM_H7 = 7
 
@@ -30,7 +30,7 @@ struct HyperbolicPoint{T<:AbstractFloat}
     end
 end
 
-# 2. MÃ¶bius Addition
+# 2. Möbius Addition
 function moebius_add(u::HyperbolicPoint{T}, v::HyperbolicPoint{T}) where T
     x, y = u.coords, v.coords
     dot_prod = dot(x, y)

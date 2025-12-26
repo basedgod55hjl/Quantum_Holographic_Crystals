@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # ==============================================================================
@@ -59,6 +59,6 @@ Variable length section.
   * **Path Length**: UInt16
   * **Path**: UTF-8 String (Relative or Absolute path to .gguf model)
 
-âœ… **Deterministic Layout**: The file must be chemically deterministic. The same seed + same graph = same .julia file byte-for-byte.
+✅ **Deterministic Layout**: The file must be chemically deterministic. The same seed + same graph = same .julia file byte-for-byte.
 
 

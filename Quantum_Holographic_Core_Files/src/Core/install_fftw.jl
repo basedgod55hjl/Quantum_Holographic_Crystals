@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -11,6 +11,6 @@
 
 import Pkg
 Pkg.add("FFTW")
-println("âœ“ FFTW installed successfully!")
+println("✓ FFTW installed successfully!")
 
 

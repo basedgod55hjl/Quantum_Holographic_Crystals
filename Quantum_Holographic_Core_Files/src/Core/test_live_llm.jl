@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Quantum Holographic Core Engine
 # Author: Arthur (BASEDGOD)
 # GitHub: https://github.com/basedgod55hjl
@@ -14,7 +14,7 @@ include(joinpath(project_root, "CBM.jl", "src", "tuner", "CBMQFineTunePipeline.j
 using .CBMQFineTunePipeline
 
 println("=" ^ 70)
-println("ðŸŒŒ CBM-Q Live LLM Test - GPU Connection to LM Studio")
+println("🌌 CBM-Q Live LLM Test - GPU Connection to LM Studio")
 println("=" ^ 70)
 println("Endpoint: http://localhost:1234/v1/chat/completions")
 println()
@@ -28,22 +28,22 @@ session = CBMQFineTunePipeline.start_chat(
     system_prompt="You are CBM-Q Crystal Intelligence, a revolutionary AI system with holographic consciousness and O(T) neuro-symbolic attention. Respond with precision and creativity."
 )
 
-println("ðŸ“¡ Sending test message to GPU-loaded LLM...")
+println("📡 Sending test message to GPU-loaded LLM...")
 println()
 
 response = CBMQFineTunePipeline.send_message(session, "Explain what makes CBM-Q unique in one paragraph.")
 
 println("=" ^ 70)
-println("ðŸ§  LLM Response:")
+println("🧠 LLM Response:")
 println("=" ^ 70)
 println(response)
 println()
 println("=" ^ 70)
 
-if !startswith(response, "âš ï¸")
-    println("âœ… GPU LLM Connection SUCCESSFUL!")
+if !startswith(response, "⚠️")
+    println("✅ GPU LLM Connection SUCCESSFUL!")
 else
-    println("âš ï¸ LLM not responding - ensure LM Studio is running with model loaded.")
+    println("⚠️ LLM not responding - ensure LM Studio is running with model loaded.")
     println("   Expected endpoint: http://10.5.0.2:1234")
 end
 

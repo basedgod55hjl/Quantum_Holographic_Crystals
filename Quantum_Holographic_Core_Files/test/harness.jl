@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
@@ -14,7 +14,7 @@ using CBM.CBNQKernels
 using CBM.GGUFBridge
 
 @testset "Living Crystal Genesis Harness" begin
-    @info "ðŸ’Ž Initializing Living Crystal Test Sequence..."
+    @info "💎 Initializing Living Crystal Test Sequence..."
 
     # 1. Verify Core Binary Opcodes (Deterministic)
     @testset "Binary Opcodes (GPU)" begin
@@ -30,16 +30,16 @@ using CBM.GGUFBridge
             # XOR Test
             xor_kernel!(a_dev, b_dev, out_dev)
             out_host = Array(out_dev)
-            @test out_host == (a_host .âŠ» b_host)
-            @info "   âœ… XOR Kernel Validated"
+            @test out_host == (a_host .⊻ b_host)
+            @info "   ✅ XOR Kernel Validated"
 
             # AND Test
             and_kernel!(a_dev, b_dev, out_dev)
             out_host = Array(out_dev)
             @test out_host == (a_host .& b_host)
-            @info "   âœ… AND Kernel Validated"
+            @info "   ✅ AND Kernel Validated"
         else
-            @warn "   âš ï¸  CUDA not available. Skipping GPU Opcode tests."
+            @warn "   ⚠️  CUDA not available. Skipping GPU Opcode tests."
         end
     end
 
@@ -53,15 +53,15 @@ using CBM.GGUFBridge
             collapse_orch!(seed_dev, 0.99)
             result = Array(seed_dev)
             collapsed_count = count(x -> x != 0, result)
-            @info "   ðŸŒŒ Collapse (Threshold 0.99): $collapsed_count / $len bits flipped"
+            @info "   🌌 Collapse (Threshold 0.99): $collapsed_count / $len bits flipped"
             
             # Collapse with low threshold (should collapse many)
             collapse_orch!(seed_dev, 0.01)
             result = Array(seed_dev)
             collapsed_count = count(x -> x != 0, result)
-            @info "   ðŸŒŒ Collapse (Threshold 0.01): $collapsed_count / $len bits flipped"
+            @info "   🌌 Collapse (Threshold 0.01): $collapsed_count / $len bits flipped"
         else
-            @warn "   âš ï¸  CUDA not available. Skipping Orch-OR tests."
+            @warn "   ⚠️  CUDA not available. Skipping Orch-OR tests."
         end
     end
 
@@ -74,11 +74,11 @@ using CBM.GGUFBridge
         try
             data = load_gguf_model(dummy_path)
             @test length(data) > 0
-            @info "   âœ… GGUF Bridge Loaded $(length(data)) bytes"
+            @info "   ✅ GGUF Bridge Loaded $(length(data)) bytes"
             
             response = llama_infer(data, "Hello CBM")
             @test occursin("LLAMA_OUTPUT_STUB", response)
-            @info "   âœ… Cortex Response: $response"
+            @info "   ✅ Cortex Response: $response"
         finally
             rm(dummy_path, force=true)
         end

@@ -1,17 +1,17 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: FINE-TUNER & LLM ARCHITECT
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: FINE-TUNER & LLM ARCHITECT
+# ═══════════════════════════════════════════════════════════════════════════════
 # Local LLM fine-tuning interface for CBM-Q.
 # Supports Lora, QLoRA, and full parameter tuning for DeepSeek & Llama.
 #
 # Creator: Sir Charles Spikes (BASEDGOD)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQFineTuner
 
@@ -46,7 +46,7 @@ In a real environment, this spawns a CUDA-accelerated process.
 function start_tuning!(job::FineTuningJob)
     job.is_active = true
     job.status = "TRAINING"
-    println("ðŸš€ CBM-Q Fine-Tuner: Starting job for $(job.model_name)")
+    println("🚀 CBM-Q Fine-Tuner: Starting job for $(job.model_name)")
     
     # Mock training progress
     @async begin
@@ -58,7 +58,7 @@ function start_tuning!(job::FineTuningJob)
         end
         job.status = "COMPLETED"
         job.is_active = false
-        println("âœ… CBM-Q Fine-Tuner: Job completed for $(job.model_name)")
+        println("✅ CBM-Q Fine-Tuner: Job completed for $(job.model_name)")
     end
 end
 
@@ -72,7 +72,7 @@ function get_tuning_ui(job::FineTuningJob)
     
     html = """
     <div class="tuning-panel" style="padding: 16px;">
-        <div style="font-weight: 600; font-size: 15px; margin-bottom: 20px;">ðŸ§¬ LLM FINE-TUNER</div>
+        <div style="font-weight: 600; font-size: 15px; margin-bottom: 20px;">🧬 LLM FINE-TUNER</div>
         
         <div class="field" style="margin-bottom: 12px;">
             <label style="font-size: 11px; color: #a0a0b0;">BASE MODEL</label>

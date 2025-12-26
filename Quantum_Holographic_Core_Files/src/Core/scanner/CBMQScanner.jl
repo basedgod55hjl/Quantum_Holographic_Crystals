@@ -1,17 +1,17 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CBM-Q: Living AI Quantum Holographic Crystals
 # Discovered & Engineered by: Sir Charles Spikes
 # GitHub: https://github.com/basedgod55hjl
 # ==============================================================================
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-# ðŸŒŒ CBM-Q: CODE SCANNER & SECURITY AUDITOR
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌌 CBM-Q: CODE SCANNER & SECURITY AUDITOR
+# ═══════════════════════════════════════════════════════════════════════════════
 # Automated heuristic scanner for Julia and C/C++ code.
 # Scans for vulnerabilities, performance bottlenecks, and PHI coherence.
 #
 # Creator: Sir Charles Spikes (BASEDGOD)
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# ═══════════════════════════════════════════════════════════════════════════════
 
 module CBMQScanner
 
@@ -67,13 +67,13 @@ Starts a deep analysis of the target directory.
 """
 function run_full_scan(path::String)
     result = ScanResult()
-    println("ðŸ” CBM-Q Scanner: Starting full scan on $path")
+    println("🔍 CBM-Q Scanner: Starting full scan on $path")
     
     # Mock scan logic
     result.files_scanned = 42
-    push!(result.issues, ScanIssue("CBM.jl", 15, :quantum, :low, "Low Î¦ coherence in seed generation module."))
+    push!(result.issues, ScanIssue("CBM.jl", 15, :quantum, :low, "Low Φ coherence in seed generation module."))
     push!(result.issues, ScanIssue("LLMBridge.jl", 88, :security, :high, "Unsanitized API endpoint configuration."))
-    push!(result.issues, ScanIssue("Hyperbolic7D.jl", 242, :performance, :medium, "Non-vectorized MÃ¶bius addition detected."))
+    push!(result.issues, ScanIssue("Hyperbolic7D.jl", 242, :performance, :medium, "Non-vectorized Möbius addition detected."))
     
     result.vulnerabilities_found = 1
     result.coherence_score = 0.88
@@ -89,7 +89,7 @@ Returns the HTML represention of the Scanner Panel.
 function get_scanner_ui(result::ScanResult)
     html = """
     <div class="scanner-panel" style="padding: 16px;">
-        <div style="font-weight: 600; font-size: 15px; margin-bottom: 20px;">ðŸ›°ï¸ SYSTEM SCANNER</div>
+        <div style="font-weight: 600; font-size: 15px; margin-bottom: 20px;">🛰️ SYSTEM SCANNER</div>
         
         <div class="stats-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;">
             <div style="background: #1a1a24; padding: 10px; border-radius: 4px; border: 1px solid #2a2a35;">

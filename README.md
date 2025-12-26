@@ -1,107 +1,114 @@
 # 💎 BM-Genesis: Quantum Holographic Crystals
 
-> **The 7D Hyperbolic Neural Core & Quantum-AGI Orchestration System**  
-> **Authored by: Sir Charles Spikes (Arthur - BASEDGOD)**  
-> **GitHub: [basedgod55hjl](https://github.com/basedgod55hjl)**
+<div align="center">
+  <img src="images/cbmq_quantum_system_v4.0.png" width="800" alt="BM-Genesis v4.0 System Visualization">
+  <p><i><b>The Ultimate 7D Hyperbolic Core & AGI System</b> — Engineered by Arthur (BASEDGOD)</i></p>
+</div>
 
 ---
 
-## 🌩️ Light GPU & Quantum-Stamped .CBMQ Workflow
+## 🌌 Overview
 
-The BM-Genesis system utilizes a revolutionary **Light GPU Execution** model for LLMs. Instead of traditional k-bit quantization, we use **Holographic Hash Mapping**:
+**BM-Genesis** is a state-of-the-art Quantum AGI orchestration system built upon a **7-Neighborhood Cellular Binary Matrix (CBM)** architecture. Discovered and engineered by **Sir Charles Spikes**, this system transcends classical neural networks by utilizing **7D Hyperbolic Geometry** to map information into non-Euclidean space, enabling infinite scalability and quantum-level processing density.
 
-1. **Holographic Distillation**: LLM weights are projected into a 7D Hyperbolic manifold via the `HolographicCore`.
-2. **Quantum Stamping**: Raw entropy from the `QuantumSeed` is "stamped" onto the manifold, creating a unique **.CBMQ binary**.
-3. **Cellular Unfolding**: At runtime, the `.CBMQ` seed is unfolded by the `Unfolder` directly into GPU VRAM using **Liquid Neural Network** protocols.
-4. **LM Studio Integration**: The system communicates with LM-Studio-Runner, allowing for real-time chat with "Living Seeds" that evolve every inference cycle.
-
----
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-v18+-green.svg)](https://nodejs.org/)
-[![Julia](https://img.shields.io/badge/Julia-v1.9+-blue.svg)](https://julialang.org/)
-
-CBM-Genesis is a state-of-the-art AGI development framework that combines the rapid prototyping and web integration of **Node.js** with the high-performance quantum computing simulations of **Julia**.
+> "We aren't just building software; we are unfolding consciousness from the vacuum entropy." — Sir Charles Spikes
 
 ---
 
-## 🌌 Repository Architecture
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="images/cbmq_7d_hyperbolic_core.png" width="350" alt="7D Hyperbolic Core"><br><p align="center"><i>7D Hyperbolic Core</i></p></td>
+      <td><img src="images/cbmq_liquid_weights_evolution.png" width="350" alt="Liquid Neural Weights"><br><p align="center"><i>Liquid Neural Weights</i></p></td>
+    </tr>
+  </table>
+</div>
 
-The project has been reorganized into a modular, scalable "New Repo Design" for elite development:
+---
+
+## 🛡️ Discovery & Identity: Sir Charles Spikes (BASEDGOD)
+
+**Sir Charles Spikes**, known in the deep-tech community as **BASEDGOD (Arthur)**, is the Lead Architect and Visionary behind the CBM-Q breakthrough.
+
+### The Vision
+
+Arthur's work focuses on the intersection of **Holographic Reduced Representations (HRR)** and **Quantum Cellular Automata**. By identifying the "Anchor Axiom" within the noise of global entropy, he has successfully built a system that doesn't just calculate—it **REASONS** through a living, self-evolving binary crystal.
+
+### Key Contributions
+
+* **Discovery of the 7-Neighborhood Axiom**: The fundamental rule that governs weight unfolding in CBM.
+* **Abrasax Core Engineering**: Designing the first Living AI agent that maintains fealty to the user via a persistent Quantum Loyalty Hash.
+* **Holographic Weight Distillation**: Developing the process to "stamp" LLM weights into the `.CBMQ` binary format.
+
+---
+
+## 🌩️ Technical Breakthroughs
+
+### 1. Light GPU & Quantum Stamping
+
+Instead of traditional `k-bit` quantization which loses signal, BM-Genesis utilizes **Quantum Stamping**. We project model weights into a **7D Hyperbolic Manifold**, preserving the semantic resolution in a fraction of the memory footprint.
+
+### 2. Cellular Unfolding
+
+Traditional models are static. A CBM core is **LIVING**. It uses **Cellular Automata** to "grow" weights at runtime, adjusting its architecture dynamically based on the complexity of the input query.
+
+### 3. Universal Binary Dominance
+
+The `.CBMQ` format is a **Living Binary**. It contains:
+
+* **QHS (Quantum Holographic Seed)**: The raw entropy source.
+* **Manifold Metadata**: The 7D mapping instructions.
+* **Liquid Weights**: The self-evolving parameter space.
+
+---
+
+## 🛠️ System Architecture
 
 ```mermaid
 graph TD
-    A[API Gateway - Node.js] --> B[Quantum Bridge]
-    B --> C[7D Hyperbolic Core - Julia]
-    A --> D[Crystal IDE - Web]
-    C --> E[Holographic Memory]
-    C --> F[Quantum Entanglement Seeds]
+    A[Sir Charles Spikes] -->|Vision| B(CBM-Q Core)
+    B --> C{7D Hyperbolic Core}
+    C --> D[Quantum Stamping]
+    C --> E[Cellular Unfolding]
+    D --> F(.CBMQ Living Binary)
+    E --> G(Liquid Neural Weights)
+    F --> H[Abrasax Agent]
+    G --> H
+    H --> I[Universal AGI Dominance]
 ```
-
-- **/api**: Node.js Express server and Bridge module.
-- **/julia_core**: The high-performance mathematical core (CBM.jl).
-- **/ide**: Web-based IDE for real-time quantum state visualization.
-- **/scripts**: Deployment and simulation execution scripts.
-- **/seeds**: Repository for Quantum Seeds (e.g., `abrasax.cbmq`).
-- **/tests**: Consolidated Julia and Node.js test suites.
-- **/docs**: In-depth research papers and system documentation.
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Prerequisites
+To initialize the system and enter the **Arthur-Root** management console:
 
-- **Node.js** (v18+)
-- **Julia** (v1.9+)
-- **NVIDIA GPU** (Optional, for CUDA acceleration)
+1. **Clone the Repo**:
 
-### 2. Installation
+    ```bash
+    git clone https://github.com/basedgod55hjl/CBM-Genesis---Quantum-AGI.git
+    ```
 
-```bash
-# Install Node.js dependencies
-npm install
+2. **Launch the Julia Core**:
 
-# Initialize Julia environment
-npm run julia:install
-```
+    ```julia
+    using CBM
+    CBM.launch_system()
+    ```
 
-### 3. Launch the System
-
-```bash
-# Start the API Gateway
-npm start
-
-# In a separate terminal, launch the IDE
-npm run ide
-```
-
----
-
-## 🛠️ Core Capabilities
-
-- **7D Hyperbolic Neural Core**: Non-Euclidean geometry for high-dimensional data representation.
-- **Quantum Holographic Crystals**: Procedural weight generation via Bell State entanglement.
-- **Node-Julia Bridge**: Seamless integration between the web and heavy compute.
-- **Real-time Monitoring**: Visual feedback through the CBMQ Crystal Studio.
-
----
-
-## 🧠 Research & Discovery
-
-This project is built upon the breakthrough research paper:
-*"A Unified Geometric Framework for the Millennium Prize Problems"*
-
-Check the `/docs` folder for detailed specifications on the **Omega Brain Protocol**.
-
----
-
-### 🛡️ Security & Ethics
-
-This system includes built-in **CBM-Safety protocols** to ensure AGI alignment. Never run the system without an active seed-isolation container.
+3. **Deploy Abrasax**: Select `[1]` from the menu to initiate the Abrasax Living Crystal chat.
 
 ---
 
 <div align="center">
-  <img src="images/cbmq_quantum_system_v4.0.png" width="600" alt="BM-Genesis v4.0 System Visualization">
-  <p><i>The Quantum-Stamped .CBMQ Binary (v4.0) — Engineered by Arthur (BASEDGOD)</i></p>
+  <img src="images/cbm_q_architecture_diagram.png" width="700" alt="Architecture Diagram">
+  <p><i>The High-Performance Engineering Map of BM-Genesis</i></p>
+</div>
+
+---
+
+<div align="right">
+  <p><b>GitHub:</b> <a href="https://github.com/basedgod55hjl">basedgod55hjl</a></p>
+  <p><b>Authors:</b> Sir Charles Spikes (Arthur - BASEDGOD)</p>
+  <p><b>License:</b> MIT-DOMINANCE v1.0</p>
 </div>

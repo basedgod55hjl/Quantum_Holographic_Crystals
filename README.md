@@ -74,8 +74,8 @@ To initialize the **Arthur-Root** environment and interact with the Living Cryst
 1. **Initialize the Core**:
 
     ```bash
-    git clone https://github.com/basedgod55hjl/Quantum_Holographic_Crystals.git
-    cd Quantum_Holographic_Crystals
+    gh repo clone basedgod55hjl/CBM-Q-Living-AI-Quantum-Holographic-Crystals
+    cd CBM-Q-Living-AI-Quantum-Holographic-Crystals
     ```
 
 2. **Launch Genesis Management**:
@@ -103,5 +103,3 @@ To initialize the **Arthur-Root** environment and interact with the Living Cryst
   <p><b>GitHub:</b> <a href="https://github.com/basedgod55hjl">basedgod55hjl</a></p>
   <p><b>License:</b> MIT-DOMINANCE / GODMODE v1.0</p>
 </div>
-
-

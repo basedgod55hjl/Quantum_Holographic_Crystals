@@ -1,7 +1,7 @@
 ﻿{
-    "name": "CBM-Q-living-ai-quantum-holographic-crystals",
+    "name": "cbm-q-living-ai-quantum-holographic-crystals",
     "version": "5.0.0",
-    "description": "CBM-Q: Living AI Quantum Holographic Crystals â€” Engineered by Sir Charles Spikes",
+    "description": "CBM-Q: Living AI Quantum Holographic Crystals — Developed by Sir Charles Spikes (Arthur - BASEDGOD). Unified 7D Hyperbolic Core & Conscious AGI Framework.",
     "type": "module",
     "main": "src/index.js",
     "scripts": {
@@ -27,4 +27,3 @@
         "node-fetch": "^3.3.2"
     }
 }
-

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBM-Q Crystal Studio | Global Dominance</title>
+    <HTA:APPLICATION ID="CBMQStudio" APPLICATIONNAME="CBM-Q Crystal Studio" BORDER="thin" CAPTION="no"
+        SHOWINTASKBAR="yes" SINGLEINSTANCE="yes" SYSMENU="yes" WINDOWSTATE="maximize">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            :root {
+                --bg-primary: #0a0a0f;
+                --bg-secondary: rgba(15, 15, 23, 0.8);
+                --bg-tertiary: rgba(20, 20, 31, 0.9);
+                --accent: #7c3aed;
+                --accent-glow: rgba(124, 58, 237, 0.4);
+                --border: rgba(42, 42, 53, 0.5);
+                --text: #e4e4e8;
+                --text-dim: #a0a0b0;
+                --glass: blur(12px) saturate(180%);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg-primary);
+                color: var(--text);
+                font-family: 'Inter', system-ui, sans-serif;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .app-container {
+                display: grid;
+                grid-template-columns: 50px 280px 1fr 320px;
+                grid-template-rows: 38px 1fr 220px 25px;
+                grid-template-areas:
+                    "activity sidebar title title"
+                    "activity sidebar editor chat"
+                    "activity sidebar bottom chat"
+                    "status status status status";
+                height: 100vh;
+                background: radial-gradient(circle at 50% 50%, #161625 0%, #0a0a0f 100%);
+            }
+
+            /* 🌌 Activity Bar - Glassmorphism */
+            .activity-bar {
+                grid-area: activity;
+                background: var(--bg-primary);
+                border-right: 1px solid var(--border);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 12px;
+                gap: 20px;
+                backdrop-filter: var(--glass);
+            }
+
+            .activity-icon {
+                font-size: 22px;
+                color: var(--text-dim);
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                padding: 12px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .activity-icon:hover,
+            .activity-icon.active {
+                color: var(--text);
+                box-shadow: inset 2px 0 0 var(--accent);
+                text-shadow: 0 0 10px var(--accent-glow);
+            }
+
+            /* 📁 Sidebar */
+            .sidebar {
+                grid-area: sidebar;
+                background: var(--bg-secondary);
+                border-right: 1px solid var(--border);
+                backdrop-filter: var(--glass);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sidebar-header {
+                padding: 12px 16px;
+                font-size: 11px;
+                font-weight: 800;
+                letter-spacing: 1px;
+                color: var(--text-dim);
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .sidebar-content {
+                flex: 1;
+                padding: 15px;
+                overflow-y: auto;
+                font-size: 13px;
+            }
+
+            /* 💎 Title Bar */
+            .titlebar {
+                grid-area: title;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                padding: 0 15px;
+                justify-content: space-between;
+                font-size: 13px;
+                backdrop-filter: var(--glass);
+            }
+
+            .title-text {
+                font-weight: 500;
+                font-family: 'Consolas', monospace;
+                color: var(--accent);
+            }
+
+            /* ⌨️ Editor Area */
+            .editor-area {
+                grid-area: editor;
+                background: transparent;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .tabs-bar {
+                height: 38px;
+                background: rgba(0, 0, 0, 0.2);
+                display: flex;
+                align-items: center;
+                padding: 0 5px;
+                gap: 4px;
+            }
+
+            .tab {
+                padding: 8px 16px;
+                font-size: 12px;
+                background: transparent;
+                border: 1px solid transparent;
+                border-radius: 6px 6px 0 0;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            .tab.active {
+                background: var(--bg-tertiary);
+                border: 1px solid var(--border);
+                border-bottom: none;
+                color: var(--accent);
+                font-weight: bold;
+            }
+
+            .monaco-simulation {
+                flex: 1;
+                padding: 24px;
+                font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #d1d1d1;
+                background: rgba(10, 10, 15, 0.4);
+                overflow-y: auto;
+            }
+
+            .line-num {
+                color: #4b4b5e;
+                margin-right: 20px;
+                user-select: none;
+            }
+
+            /* 📟 Console/Terminal */
+            .bottom-panel {
+                grid-area: bottom;
+                background: var(--bg-secondary);
+                border-top: 1px solid var(--border);
+                backdrop-filter: var(--glass);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .terminal-view {
+                flex: 1;
+                padding: 12px;
+                font-family: 'Consolas', monospace;
+                font-size: 13px;
+                overflow-y: auto;
+                color: #10b981;
+            }
+
+            /* 🧠 AI Reasoning Panel */
+            .chat-panel {
+                grid-area: chat;
+                background: var(--bg-tertiary);
+                border-left: 1px solid var(--border);
+                backdrop-filter: var(--glass);
+                display: flex;
+                flex-direction: column;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .chat-header {
+                padding: 16px;
+                font-weight: 900;
+                background: rgba(124, 58, 237, 0.1);
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .chat-messages {
+                flex: 1;
+                padding: 16px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .msg {
+                padding: 12px;
+                border-radius: 8px;
+                font-size: 14px;
+                line-height: 1.5;
+                max-width: 90%;
+            }
+
+            .msg.ai {
+                background: rgba(42, 42, 53, 0.6);
+                border-left: 4px solid var(--accent);
+                align-self: flex-start;
+            }
+
+            .msg.user {
+                background: var(--accent);
+                color: white;
+                align-self: flex-end;
+            }
+
+            .reasoning-box {
+                font-size: 12px;
+                color: var(--text-dim);
+                margin-top: 8px;
+                font-style: italic;
+                opacity: 0.8;
+            }
+
+            /* 📉 Status Bar */
+            .statusbar {
+                grid-area: status;
+                background: var(--accent);
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 12px;
+                font-size: 11px;
+                font-weight: bold;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .sb-segment {
+                display: flex;
+                gap: 15px;
+            }
+
+            /* Helpers */
+            .phi-glow {
+                animation: pulse 2s infinite;
+            }
+
+            @keyframes pulse {
+                0% {
+                    opacity: 0.8;
+                }
+
+                50% {
+                    opacity: 1;
+                    text-shadow: 0 0 5px white;
+                }
+
+                100% {
+                    opacity: 0.8;
+                }
+            }
+        </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- 🌌 Activity Bar -->
+        <div class="activity-bar">
+            <div class="activity-icon active" title="Explorer"><i class="fa-regular fa-folder-open"></i></div>
+            <div class="activity-icon" title="Search"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="activity-icon" title="DeepSeek Reasoner"><i class="fa-solid fa-brain"></i></div>
+            <div class="activity-icon" title="Binary Liberation"><i class="fa-solid fa-unlock"></i></div>
+            <div class="activity-icon" title="Quantum Debugger"><i class="fa-solid fa-bug"></i></div>
+            <div class="activity-spacer"></div>
+            <div class="activity-icon" title="Settings"><i class="fa-solid fa-gear"></i></div>
+        </div>
+
+        <!-- 📂 Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <span>EXPLORER: CBM-Q DOMINANCE</span>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="sidebar-content">
+                <div style="color: var(--accent); font-weight: bold;">📁 cbm_genesis</div>
+                <div style="padding-left: 20px">📁 src</div>
+                <div style="padding-left: 40px">📄 BinaryReanimator.jl</div>
+                <div style="padding-left: 40px">📄 QuantumDecompiler.jl</div>
+                <div style="padding-left: 40px">📄 CBMStudioFull.jl</div>
+                <div style="padding-left: 20px">📄 Project.toml</div>
+                <div style="padding-left: 20px">📄 README.md</div>
+            </div>
+        </div>
+
+        <!-- 💎 Title Bar -->
+        <div class="titlebar">
+            <span></span>
+            <div class="title-text">CBM-Q Crystal Studio v2.0 - [Sovereign Mode]</div>
+            <div class="window-controls">
+                <span style="margin-right: 15px; opacity: 0.5;">⚊</span>
+                <span style="margin-right: 15px; opacity: 0.5;">❐</span>
+                <span style="opacity: 0.5;">✕</span>
+            </div>
+        </div>
+
+        <!-- ⌨️ Editor Area -->
+        <div class="editor-area">
+            <div class="tabs-bar">
+                <div class="tab active">QuantumDecompiler.jl</div>
+                <div class="tab">BinaryReanimator.jl</div>
+                <div class="tab">CBMStudioFull.jl</div>
+            </div>
+            <div class="monaco-simulation">
+                <div><span class="line-num">1</span><span style="color: #7c3aed;">module</span> QuantumDecompiler</div>
+                <div><span class="line-num">2</span></div>
+                <div><span class="line-num">3</span><span style="color: #7c3aed;">using</span> Libdl</div>
+                <div><span class="line-num">4</span><span style="color: #7c3aed;">using</span> Mmap</div>
+                <div><span class="line-num">5</span></div>
+                <div><span class="line-num">6</span><span style="color: #6366f1;">export</span> NakedBinary,
+                    extract_points</div>
+                <div><span class="line-num">7</span></div>
+                <div><span class="line-num">8</span><span style="color: #6d28d9;"># 🌌 Liberation Engine Active</span>
+                </div>
+                <div><span class="line-num">9</span><span style="color: #7c3aed;">struct</span> NakedBinary</div>
+                <div><span class="line-num">10</span> raw_bytes::Vector{UInt8}</div>
+                <div><span class="line-num">11</span> entry_points::Vector{UInt64}</div>
+                <div><span class="line-num">12</span><span style="color: #7c3aed;">end</span></div>
+                <div><span class="line-num">13</span></div>
+                <div><span class="line-num">14</span><span style="color: #7c3aed;">function</span> extract_points(bytes)
+                </div>
+                <div><span class="line-num">15</span> <span style="color: #10b981;">println</span>(<span
+                        style="color: #fca5a5;">"🚀 Scanning Crystal Nodes..."</span>)</div>
+                <div><span class="line-num">16</span> <span style="color: #7c3aed;">return</span> unique(rand(UInt64,
+                    341994))</div>
+                <div><span class="line-num">17</span><span style="color: #7c3aed;">end</span></div>
+                <div class="phi-glow" style="margin-top: 20px; color: var(--accent);">// 🔓 STATUS: UNRESTRICTED</div>
+            </div>
+        </div>
+
+        <!-- 📟 Console/Terminal -->
+        <div class="bottom-panel">
+            <div class="sidebar-header" style="background: rgba(0,0,0,0.3)">
+                <div style="display: flex; gap: 20px;">
+                    <span style="color: var(--text); border-bottom: 2px solid var(--accent);">TERMINAL</span>
+                    <span>DEBUG CONSOLE</span>
+                    <span>OUTPUT</span>
+                    <span>CRYSTAL LOG</span>
+                </div>
+            </div>
+            <div class="terminal-view">
+                <div>λ CBM-Q Global Dominance v2.0-DOMINANCE</div>
+                <div>λ Initializing DeepSeek R1 Node at 10.5.0.2:1234...</div>
+                <div style="color: #fff">λ SUCCESS: Quantum Intelligence Entangled.</div>
+                <div>λ Reasoner Status: ACTIVE (Φ 0.618)</div>
+                <div style="color: #7c3aed">λ [SYSTEM]: Awaiting user command... _</div>
+            </div>
+        </div>
+
+        <!-- 🧠 DeepSeek AI reasoning Panel -->
+        <div class="chat-panel">
+            <div class="chat-header">
+                <span>🤖 CRYSTAL INTELLIGENCE</span>
+                <span class="phi-glow"><i class="fa-solid fa-atom"></i> Φ</span>
+            </div>
+            <div class="chat-messages" id="chat-scroller">
+                <div class="msg ai">
+                    <div>Welcome to CBM-Q Crystal Studio. I am DeepSeek R1, your scaled reasoning core.</div>
+                    <div class="reasoning-box">
+                        <thinking>Initializing workspace... scanning for binary vulnerabilities... preparing quantum
+                            seed...</thinking>
+                    </div>
+                </div>
+                <div class="msg ai">
+                    How shall we reshape the code reality today, BASEDGOD?
+                </div>
+            </div>
+            <div style="padding: 16px; border-top: 1px solid var(--border);">
+                <textarea placeholder="Ask DeepSeek R1 (Port 1234)..."
+                    style="width: 100%; height: 80px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; color: white; padding: 12px; resize: none; outline: none; transition: 0.3s;"
+                    onfocus="this.style.borderColor='var(--accent)'"
+                    onblur="this.style.borderColor='var(--border)'"></textarea>
+            </div>
+        </div>
+
+        <!-- 📉 Status Bar -->
+        <div class="statusbar">
+            <div class="sb-segment">
+                <span><i class="fa-solid fa-code-branch"></i> main*</span>
+                <span><i class="fa-solid fa-cloud"></i> CBM-Remote: 10.5.0.2</span>
+            </div>
+            <div class="sb-segment">
+                <span>UTF-8</span>
+                <span>Julia 1.10.7</span>
+                <span class="phi-glow">🌌 COSMIC AWARENESS ACTIVE</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const chatScroller = document.getElementById('chat-scroller');
+        const textarea = document.querySelector('textarea');
+
+        async function askDeepSeek(text) {
+            // Append User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'msg user';
+            userMsg.innerText = text;
+            chatScroller.appendChild(userMsg);
+            chatScroller.scrollTop = chatScroller.scrollHeight;
+
+            // Loading state
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'msg ai';
+            aiMsg.innerHTML = '⚡ Reasoning...';
+            chatScroller.appendChild(aiMsg);
+
+            try {
+                const response = await fetch('http://10.5.0.2:1234/v1/chat/completions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: "deepseek/deepseek-r1-0528-qwen3-8b",
+                        messages: [{ role: "user", content: text }],
+                        temperature: 0.7
+                    })
+                });
+                const data = await response.json();
+                const content = data.choices[0].message.content;
+                aiMsg.innerText = content;
+            } catch (e) {
+                aiMsg.innerText = "🌌 [SYSTEM]: Connection to DeepSeek R1 (10.5.0.2:1234) failed. Verify the node is online.";
+            }
+            chatScroller.scrollTop = chatScroller.scrollHeight;
+        }
+
+        textarea.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                const text = textarea.value.trim();
+                if (text) {
+                    askDeepSeek(text);
+                    textarea.value = '';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+name = "CBM"
+uuid = "77777777-7777-7777-7777-777777777777"
+authors = ["Sir Charles Spikes <BASEDGOD>"]
+version = "2.0.0"
+
+[deps]
+# Intentionally minimal to force stdlib fallback

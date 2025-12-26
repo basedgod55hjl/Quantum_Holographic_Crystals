@@ -1,0 +1,10 @@
+name = "CBMQ_Crystal_IDE"
+uuid = "13131313-1313-1313-1313-131313131313"
+authors = ["Sir Charles Spikes <BASEDGOD>"]
+version = "0.1.0"
+
+[deps]
+Blink = "ad839575-38b3-523b-97c1-6f45239a5180"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+Sockets = "6462fe0b-24de-5631-8697-dd58c9041a0c"

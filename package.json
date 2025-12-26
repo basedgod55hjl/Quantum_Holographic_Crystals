@@ -1,7 +1,7 @@
 {
-    "name": "cbm-genesis-quantum-agi",
+    "name": "cbm-genesis-quantum-holographic-crystals",
     "version": "1.0.0",
-    "description": "Quantum AGI System with 7D Hyperbolic Neural Core",
+    "description": "BM-Genesis: Quantum Holographic Crystals — 7D Hyperbolic Core & AGI system",
     "type": "module",
     "main": "src/index.js",
     "scripts": {

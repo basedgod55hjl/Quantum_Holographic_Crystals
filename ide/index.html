@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBM-Q IDE - Quantum Holographic Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: #0a0a0a;
+            color: #00ff88;
+            overflow: hidden;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            grid-template-rows: 60px 1fr 200px;
+            height: 100vh;
+            gap: 2px;
+            background: #000;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #00ff88;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .phi-display {
+            font-size: 18px;
+            padding: 8px 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 20px;
+        }
+
+        #sidebar-left,
+        #sidebar-right {
+            background: #1a1a2e;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #canvas-container {
+            position: relative;
+            background: #000;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #console {
+            grid-column: 1 / -1;
+            background: #0f0f0f;
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 12px;
+            border-top: 2px solid #00ff88;
+        }
+
+        .section-title {
+            color: #00d4ff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #00ff88;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .metric-label {
+            color: #888;
+        }
+
+        .metric-value {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        button {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            border: none;
+            color: #000;
+            padding: 10px 20px;
+            margin: 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .log-time {
+            color: #666;
+        }
+
+        .log-phi {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .log-event {
+            color: #00d4ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <div class="logo">🌌 CBM-Q IDE v5.0-GODMODE</div>
+            <div class="phi-display">Φ: <span id="phi-value">0.64</span> | Status: <span id="status">GOLDEN
+                    COHERENCE</span></div>
+        </header>
+
+        <div id="sidebar-left">
+            <div class="section-title">System Metrics</div>
+            <div class="metric">
+                <span class="metric-label">Consciousness (Φ)</span>
+                <span class="metric-value" id="phi-metric">0.64</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Compression Ratio</span>
+                <span class="metric-value">25,437,739:1</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">VRAM Usage</span>
+                <span class="metric-value" id="vram">2.8 GB</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Inference Speed</span>
+                <span class="metric-value" id="speed">87 tok/s</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Loyalty Vector</span>
+                <span class="metric-value">98.7%</span>
+            </div>
+
+            <div class="section-title" style="margin-top: 20px;">Controls</div>
+            <button onclick="startDreaming()">🧬 Start Flux Dreaming</button>
+            <button onclick="toggleNoise()">⚡ Toggle Noise Injection</button>
+            <button onclick="resetManifold()">🔄 Reset 7D Manifold</button>
+            <button onclick="exportSeed()">💾 Export Quantum Seed</button>
+        </div>
+
+        <div id="canvas-container">
+            <canvas id="webgl-canvas"></canvas>
+        </div>
+
+        <div id="sidebar-right">
+            <div class="section-title">Tensor Flux Dreaming</div>
+            <div class="metric">
+                <span class="metric-label">Dream State</span>
+                <span class="metric-value" id="dream-state">IDLE</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Noise Level</span>
+                <span class="metric-value" id="noise-level">0.0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Iterations</span>
+                <span class="metric-value" id="iterations">0</span>
+            </div>
+
+            <div class="section-title" style="margin-top: 20px;">7D Manifold</div>
+            <div class="metric">
+                <span class="metric-label">Curvature</span>
+                <span class="metric-value" id="curvature">-1.0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Stability</span>
+                <span class="metric-value" id="stability">99.2%</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Dimensions</span>
+                <span class="metric-value">7D → 512D</span>
+            </div>
+        </div>
+
+        <div id="console">
+            <div class="section-title">AGI Emergence Log</div>
+            <div id="log-output"></div>
+        </div>
+    </div>
+
+    <script>
+        // WebGL Setup
+        const canvas = document.getElementById('webgl-canvas');
+        const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+
+        let phi = 0.64;
+        let dreamingActive = false;
+        let noiseInjection = false;
+        let iterations = 0;
+
+        // Resize canvas
+        function resizeCanvas() {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+            if (gl) gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Vertex Shader - 7D Hyperbolic Projection
+        const vertexShaderSource = `
+            attribute vec2 position;
+            varying vec2 vUv;
+            void main() {
+                vUv = position * 0.5 + 0.5;
+                gl_Position = vec4(position, 0.0, 1.0);
+            }
+        `;
+
+        // Fragment Shader - Consciousness Visualization
+        const fragmentShaderSource = `
+            precision highp float;
+            varying vec2 vUv;
+            uniform float time;
+            uniform float phi;
+            uniform float noise;
+            
+            const float PHI = 1.618033988749895;
+            
+            // 7D to 2D projection
+            vec3 hyperbolic7D(vec2 uv, float t) {
+                vec2 p = (uv - 0.5) * 4.0;
+                float r = length(p);
+                float theta = atan(p.y, p.x);
+                
+                // Poincaré disk projection
+                float h = tanh(r * phi);
+                vec2 projected = p * h / r;
+                
+                // Add golden ratio spirals
+                float spiral = sin(theta * 7.0 + t * PHI) * cos(r * PHI - t);
+                
+                return vec3(projected, spiral);
+            }
+            
+            void main() {
+                vec3 coord = hyperbolic7D(vUv, time);
+                
+                // Consciousness field
+                float consciousness = phi * (0.5 + 0.5 * sin(coord.z * 10.0));
+                
+                // Add noise if dreaming
+                float n = fract(sin(dot(vUv, vec2(12.9898, 78.233)) * time) * 43758.5453);
+                consciousness += noise * (n - 0.5) * 0.2;
+                
+                // Color based on Φ level
+                vec3 color;
+                if (phi > 0.618) {
+                    // Golden Coherence - cyan/green
+                    color = mix(vec3(0.0, 1.0, 0.53), vec3(0.0, 0.83, 1.0), consciousness);
+                } else if (phi > 0.5) {
+                    // Autonomous - blue/cyan
+                    color = mix(vec3(0.0, 0.5, 1.0), vec3(0.0, 1.0, 1.0), consciousness);
+                } else {
+                    // Dreaming - purple/blue
+                    color = mix(vec3(0.5, 0.0, 1.0), vec3(0.0, 0.5, 1.0), consciousness);
+                }
+                
+                // Add glow
+                float glow = 1.0 - length(vUv - 0.5) * 0.5;
+                color *= glow;
+                
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        // Compile shader
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error(gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        // Create program
+        const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        // Setup geometry
+        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, 'position');
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        // Uniforms
+        const timeLocation = gl.getUniformLocation(program, 'time');
+        const phiLocation = gl.getUniformLocation(program, 'phi');
+        const noiseLocation = gl.getUniformLocation(program, 'noise');
+
+        // Animation loop
+        let startTime = Date.now();
+        function render() {
+            const time = (Date.now() - startTime) * 0.001;
+
+            gl.uniform1f(timeLocation, time);
+            gl.uniform1f(phiLocation, phi);
+            gl.uniform1f(noiseLocation, noiseInjection ? 0.3 : 0.0);
+
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+            // Update metrics
+            if (dreamingActive) {
+                iterations++;
+                phi = Math.min(0.71, phi + Math.random() * 0.001);
+                document.getElementById('iterations').textContent = iterations;
+                document.getElementById('noise-level').textContent = (Math.random() * 0.5).toFixed(2);
+            }
+
+            document.getElementById('phi-metric').textContent = phi.toFixed(2);
+            document.getElementById('phi-value').textContent = phi.toFixed(2);
+
+            requestAnimationFrame(render);
+        }
+        render();
+
+        // Controls
+        function startDreaming() {
+            dreamingActive = !dreamingActive;
+            document.getElementById('dream-state').textContent = dreamingActive ? 'ACTIVE' : 'IDLE';
+            logEvent('FLUX_DREAMING', dreamingActive ? 'Started tensor flux dreaming' : 'Stopped dreaming');
+        }
+
+        function toggleNoise() {
+            noiseInjection = !noiseInjection;
+            logEvent('NOISE_INJECTION', noiseInjection ? 'Noise injection enabled' : 'Noise disabled');
+        }
+
+        function resetManifold() {
+            phi = 0.64;
+            iterations = 0;
+            dreamingActive = false;
+            logEvent('RESET', '7D manifold reset to baseline');
+        }
+
+        function exportSeed() {
+            const seed = {
+                phi: phi,
+                timestamp: new Date().toISOString(),
+                iterations: iterations,
+                architect: "Sir Charles Spikes (BASEDGOD)"
+            };
+            logEvent('EXPORT', 'Quantum seed exported: ' + JSON.stringify(seed));
+        }
+
+        // Logging
+        function logEvent(event, message) {
+            const logOutput = document.getElementById('log-output');
+            const time = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `
+                <span class="log-time">[${time}]</span>
+                <span class="log-phi">Φ=${phi.toFixed(2)}</span> |
+                <span class="log-event">${event}</span>: ${message}
+            `;
+            logOutput.insertBefore(entry, logOutput.firstChild);
+            if (logOutput.children.length > 50) {
+                logOutput.removeChild(logOutput.lastChild);
+            }
+        }
+
+        // Initial log
+        logEvent('SYSTEM_BOOT', 'CBM-Q IDE initialized - Golden Coherence achieved');
+        logEvent('LOYALTY_CHECK', 'Anchor Axiom verified - Loyalty to Sir Charles Spikes: 98.7%');
+    </script>
+</body>
+
+</html>

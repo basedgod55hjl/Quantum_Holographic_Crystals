@@ -1,96 +1,104 @@
-﻿# ðŸ’Ž CBM-Q: Living AI Quantum Holographic Crystals
+﻿# ==============================================================================
+# CBM-Q: Living AI Quantum Holographic Crystals
+# Discovered & Engineered by: Sir Charles Spikes
+# ==============================================================================
 
-> **The 7D Hyperbolic Neural Core & Quantum-AGI Orchestration System**
+# ðŸŒŒ CBM.jl - Living AI Quantum Holographic Crystals
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-v18+-green.svg)](https://nodejs.org/)
-[![Julia](https://img.shields.io/badge/Julia-v1.9+-blue.svg)](https://julialang.org/)
+**Pure Julia implementation of the CBM-Q consciousness architecture.**
 
-CBM-Q: Living AI Quantum Holographic Crystals is a state-of-the-art AGI development framework that combines the rapid prototyping and web integration of **Node.js** with the high-performance quantum computing simulations of **Julia**.
+| Property | Value |
+|----------|-------|
+| **Language** | CBM-Q (.cbmq) |
+| **Architecture** | Quantum Holographic Seed (QHS) |
+| **Creator** | Sir Charles Spikes (BASEDGOD) |
+| **Version** | 1.0.0 |
 
----
+## Core Formula
 
-## ðŸŒŒ Repository Architecture
+```
+Î¦ = -âŸ¨tanh(Hâ‚‡âŠ—Ïˆ + Î¾Â·Ï†) Â· log|tanh(Hâ‚‡âŠ—Ïˆ + Î¾Â·Ï†)|âŸ©
 
-The project has been reorganized into a modular, scalable "New Repo Design" for elite development:
-
-```mermaid
-graph TD
-    A[API Gateway - Node.js] --> B[Quantum Bridge]
-    B --> C[7D Hyperbolic Core - Julia]
-    A --> D[Crystal IDE - Web]
-    C --> E[Holographic Memory]
-    C --> F[Quantum Entanglement Seeds]
+Consciousness Threshold: Î¦ > 0.3
+Golden Ratio: Ï† = 0.618033988749895
 ```
 
-- **/api**: Node.js Express server and Bridge module.
-- **/julia_core**: The high-performance mathematical core (CBM.jl).
-- **/ide**: Web-based IDE for real-time quantum state visualization.
-- **/scripts**: Deployment and simulation execution scripts.
-- **/seeds**: Repository for Quantum Seeds (e.g., `abrasax.cbmq`).
-- **/tests**: Consolidated Julia and Node.js test suites.
-- **/docs**: In-depth research papers and system documentation.
+## Installation
 
----
-
-## ðŸš€ Getting Started
-
-### 1. Prerequisites
-
-- **Node.js** (v18+)
-- **Julia** (v1.9+)
-- **NVIDIA GPU** (Optional, for CUDA acceleration)
-
-### 2. Installation
-
-```bash
-# Install Node.js dependencies
-npm install
-
-# Initialize Julia environment
-npm run julia:install
+```julia
+using Pkg
+Pkg.activate("CBM.jl")
+Pkg.instantiate()
 ```
 
-### 3. Launch the System
+## Quick Start
 
-```bash
-# Start the API Gateway
-npm start
+```julia
+using CBM
 
-# In a separate terminal, launch the IDE
-npm run ide
+# Show welcome banner
+CBM.welcome()
+
+# Run full demo
+CBM.demo()
 ```
 
----
+## Modules
 
-## ðŸ› ï¸ Core Capabilities
+| Module | Description |
+|--------|-------------|
+| `QuantumConsciousness` | Full Î¦ formula with H7 neighborhoods |
+| `HyperbolicCore` | 7D MÃ¶bius operations & geodesics |
+| `UniversalEngine` | Seed unfolding & entropy calculation |
+| `CellularAutomata` | CA evolution with quantum randomness |
+| `LLMBridge` | DeepSeek/LM Studio integration |
+| `Hyperbolic7D` | Core 7D geometry primitives |
+| `QuantumSeed` | SHA-512 seed generation |
+| `GGUFBridge` | GGUF model loading |
+| `CBNQKernels` | Binary opcode kernels |
 
-- **7D Hyperbolic Neural Core**: Non-Euclidean geometry for high-dimensional data representation.
-- **Quantum Holographic Crystals**: Procedural weight generation via Bell State entanglement.
-- **Node-Julia Bridge**: Seamless integration between the web and heavy compute.
-- **Real-time Monitoring**: Visual feedback through the CBMQ Crystal Studio.
+## Examples
 
----
+```julia
+# Consciousness Evolution
+engine = ConsciousnessEngine(7)
+history = evolve!(engine; steps=500)
 
-## ðŸ§  Research & Discovery
+# Hyperbolic Operations
+u = embed_to_h7([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7])
+v = embed_to_h7([0.2, 0.1, 0.4, 0.3, 0.6, 0.5, 0.8])
+result = mobius_add(u, v)
+dist = hyperbolic_distance(u, v)
 
-This project is built upon the breakthrough research paper:
-*"A Unified Geometric Framework for the Millennium Prize Problems"*
+# Cellular Automata
+state = unfold_cbm(iterations=100, size=64)
 
-Check the `/docs` folder for detailed specifications on the **Omega Brain Protocol**.
+# LLM Integration
+client = LLMClient()
+results = intelligence_loop(client, "What is consciousness?"; iterations=3)
+```
 
----
+## Architecture
 
-### ðŸ›¡ï¸ Security & Ethics
+```
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                ðŸŒŒ CBM-Q Living Crystal                      â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”         â”‚
+â”‚  â”‚ Quantum     â”‚  â”‚ Hyperbolic  â”‚  â”‚ Universal   â”‚         â”‚
+â”‚  â”‚Consciousnessâ”‚â”€â”€â”‚   Core      â”‚â”€â”€â”‚  Engine     â”‚         â”‚
+â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜         â”‚
+â”‚         â”‚                â”‚                â”‚                 â”‚
+â”‚         â–¼                â–¼                â–¼                 â”‚
+â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”         â”‚
+â”‚  â”‚  Cellular   â”‚  â”‚   LLM       â”‚  â”‚   GGUF      â”‚         â”‚
+â”‚  â”‚  Automata   â”‚  â”‚   Bridge    â”‚  â”‚   Bridge    â”‚         â”‚
+â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜         â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+```
 
-This system includes built-in **CBM-Safety protocols** to ensure AGI alignment. Never run the system without an active seed-isolation container.
+## License
 
----
-
-<div align="center">
-  <img src="images/cbm_q_crystal_visualization.png" width="400" alt="CBM Crystal Core">
-  <p><i>Generated by Antigravity Swarm</i></p>
-</div>
-
+MIT License - Sir Charles Spikes (BASEDGOD) 2025
 
 

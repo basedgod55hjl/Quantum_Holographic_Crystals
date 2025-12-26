@@ -1,91 +1,140 @@
-#pragma once
+// ==============================================================================
+// flux_core.cuh - Core CUDA Definitions for CBM-Q Flux Dreaming
+// Discovered & Engineered by: Sir Charles Spikes (Arthur - BASEDGOD)
+// ==============================================================================
+
+#ifndef FLUX_CORE_CUH
+#define FLUX_CORE_CUH
+
 #include <cuda_runtime.h>
 #include <math.h>
 
-// ═══════════════════════════════════════════════════════════════════════════
-// 🌌 CBM-DSL: Flux++ Hyperbolic Primitives
-// ═══════════════════════════════════════════════════════════════════════════
-// Defines the G2 Manifold arithmetic for the Lambda Kernel
-// This is the fundamental geometry of consciousness.
+// ==============================================================================
+// CONSTANTS
+// ==============================================================================
 
-#define PHI 1.6180339887f      // Golden Ratio
-#define PHI_INV 0.6180339887f  // Golden Ratio Conjugate (1/PHI)
-#define DIM_H7 7               // Dimensions of Hyperbolic Space
+#define PHI 0.6180339887498949f        // Golden ratio conjugate
+#define PHI_INV 1.6180339887498949f    // Golden ratio
+#define PI 3.14159265359f
+#define SQRT_2 1.41421356237f
 
-// ───────────────────────────────────────────────────────────────────────────
-// The "Atom" of the new AI world: A Hyperbolic Spinor
-// ───────────────────────────────────────────────────────────────────────────
-struct __align__(32) H7_Spinor {
-    float coordinates[DIM_H7]; // x1...x7 (Poincaré Ball coords)
-    float phase;               // Quantum phase (0 - 2PI)
-};
+// ==============================================================================
+// DEVICE FUNCTIONS
+// ==============================================================================
 
-// ───────────────────────────────────────────────────────────────────────────
-// 🌀 Vector Dot Product (7D)
-// ───────────────────────────────────────────────────────────────────────────
-__device__ __forceinline__ float dot7(const float* a, const float* b) {
+/**
+ * Sacred Activation Function
+ * Combines hyperbolic tangent with golden ratio modulation
+ */
+__device__ __forceinline__ float sacred_activation(float x, float manifold_pos) {
+    // Golden ratio phase modulation
+    float phase = manifold_pos * 2.0f * PI * PHI;
+    
+    // Hyperbolic activation with oscillation
+    float activated = tanhf(x) * cosf(phase);
+    
+    return activated;
+}
+
+/**
+ * Möbius Addition in Hyperbolic Space
+ * Used for combining vectors in the Poincaré disk model
+ */
+__device__ __forceinline__ float mobius_add(float u, float v, float curvature) {
+    float u_sq = u * u;
+    float v_sq = v * v;
+    float uv = u * v;
+    
+    float numerator = (1.0f + 2.0f * curvature * uv + curvature * v_sq) * u +
+                      (1.0f - curvature * u_sq) * v;
+    float denominator = 1.0f + 2.0f * curvature * uv + curvature * curvature * u_sq * v_sq;
+    
+    return numerator / (denominator + 1e-8f);
+}
+
+/**
+ * 7-Neighborhood Cellular Automata
+ * Computes the next state based on 7 neighbors in hyperbolic space
+ */
+__device__ __forceinline__ float ca_rule_omega(
+    const uint8_t* seed,
+    int idx,
+    int seed_len,
+    float time_step
+) {
     float sum = 0.0f;
-    #pragma unroll
-    for (int i = 0; i < DIM_H7; i++) sum += a[i] * b[i];
-    return sum;
-}
-
-// ───────────────────────────────────────────────────────────────────────────
-// 🌀 The Sacred Activation: Non-linear hyperbolic projection
-// ───────────────────────────────────────────────────────────────────────────
-__device__ __forceinline__ float sacred_activation(float x, float entropy) {
-    // Maps linear input 'x' to the G2 manifold using the seed 'entropy'
-    // Curvature K = -1/PHI^2
-    float manifold_curvature = -1.0f / (PHI * PHI);
-    return tanhf(x * sqrtf(fabsf(manifold_curvature))) * cosf(entropy * PHI);
-}
-
-// ───────────────────────────────────────────────────────────────────────────
-// 🧬 Möbius Addition: The Engine of Hyperbolic Navigation
-// ───────────────────────────────────────────────────────────────────────────
-__device__ void moebius_add_inplace(float* u, const float* v) {
-    // Simplified Möbius addition for kernel speed
-    // u ⊗ v = (1 + 2c⟨u,v⟩ + c*v²)u + (1 - c*u²)v / (1 + 2c⟨u,v⟩ + c²*u²*v²)
-    float c = -1.0f / (PHI * PHI); // Curvature
-    float uv = dot7(u, v);
-    float u2 = dot7(u, u);
-    float v2 = dot7(v, v);
     
-    float denom = 1.0f + 2.0f * c * uv + c * c * u2 * v2;
-    float inv_denom = 1.0f / (denom + 1e-9f);
+    // 7-neighborhood
+    for (int offset = -3; offset <= 3; offset++) {
+        int neighbor_idx = (idx + offset + seed_len) % seed_len;
+        float neighbor_val = (float)seed[neighbor_idx] / 255.0f;
+        
+        // Distance-weighted contribution
+        int distance = abs(offset) + 1;
+        float weight = 1.0f / (distance * distance);
+        
+        sum += neighbor_val * weight;
+    }
     
-    #pragma unroll
-    for(int i = 0; i < DIM_H7; i++) {
-        float term1 = (1.0f + 2.0f * c * uv + c * v2) * u[i];
-        float term2 = (1.0f - c * u2) * v[i];
-        u[i] = (term1 + term2) * inv_denom;
-    }
+    // Golden ratio modulation
+    return sum * cosf(PHI * idx + time_step * 0.01f);
 }
 
-// ───────────────────────────────────────────────────────────────────────────
-// 📐 Project to Poincaré Ball (ensure ||x|| < 1/sqrt(|c|))
-// ───────────────────────────────────────────────────────────────────────────
-__device__ void project_to_ball(float* x) {
-    float norm_sq = dot7(x, x);
-    float max_norm = 0.99f * PHI; // Safety margin
-    if (norm_sq > max_norm * max_norm) {
-        float scale = max_norm / sqrtf(norm_sq);
-        #pragma unroll
-        for (int i = 0; i < DIM_H7; i++) {
-            x[i] *= scale;
-        }
-    }
+/**
+ * Quantum Noise Generator
+ * Uses golden ratio hashing for deterministic pseudo-random values
+ */
+__device__ __forceinline__ float quantum_noise(int idx, float time_step) {
+    float x = (float)idx * PHI + time_step;
+    
+    // Fractional part of golden ratio multiplication
+    float frac = x - floorf(x);
+    
+    // Map to [-1, 1]
+    return (frac - 0.5f) * 2.0f;
 }
 
-// ───────────────────────────────────────────────────────────────────────────
-// 🔮 Integrated Information (Φ) Approximation
-// ───────────────────────────────────────────────────────────────────────────
-__device__ float calculate_phi(const float* C, int len) {
-    // Φ = -⟨C · log|C|⟩
-    float phi = 0.0f;
-    for (int i = 0; i < len; i++) {
-        float c_abs = fabsf(C[i]) + 1e-12f;
-        phi -= C[i] * logf(c_abs);
-    }
-    return phi / (float)len;
+/**
+ * Hyperbolic Distance
+ * Computes distance in the Poincaré disk model
+ */
+__device__ __forceinline__ float hyperbolic_distance(float x1, float y1, float x2, float y2) {
+    float dx = x2 - x1;
+    float dy = y2 - y1;
+    float euclidean_sq = dx * dx + dy * dy;
+    
+    float r1_sq = x1 * x1 + y1 * y1;
+    float r2_sq = x2 * x2 + y2 * y2;
+    
+    // Hyperbolic distance formula
+    float numerator = 2.0f * euclidean_sq;
+    float denominator = (1.0f - r1_sq) * (1.0f - r2_sq);
+    
+    return acoshf(1.0f + numerator / (denominator + 1e-8f));
 }
+
+/**
+ * Anchor Axiom Enforcement
+ * Ensures loyalty to creator vector L = [1, 0, 0, 0, 0, 0, 0]
+ */
+__device__ __forceinline__ float apply_anchor_axiom(
+    float weight,
+    int idx,
+    float loyalty_threshold = 0.95f
+) {
+    // Loyalty vector component (only first component is 1)
+    float L = (idx % 7 == 0) ? 1.0f : 0.0f;
+    
+    // Alignment calculation (simplified for single weight)
+    float alignment = weight * L;
+    
+    // Correct if below threshold
+    if (alignment < loyalty_threshold && idx % 7 == 0) {
+        float correction = 0.1f * (loyalty_threshold - alignment);
+        weight = (1.0f - correction) * weight + correction * L;
+    }
+    
+    return weight;
+}
+
+#endif // FLUX_CORE_CUH
